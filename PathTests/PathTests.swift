@@ -9,28 +9,36 @@
 import XCTest
 @testable import Path
 
-class PathTests: XCTestCase {
+class PathTests: XCTestCase
+{
+    let path = UIBezierPath()
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    override func setUp()
+    {
+        path.moveToPoint(CGPoint(x: 10, y: 10))
+        path.addLineToPoint(CGPoint(x: 20, y: 20))
+        path.addQuadCurveToPoint(CGPoint(x: 100, y: 10), controlPoint: CGPoint(x: 50, y: 100))
+        path.addCurveToPoint(CGPoint(x: 50, y: 0), controlPoint1: CGPoint(x: 75, y: 100), controlPoint2: CGPoint(x: 10, y: -100))
+        path.closePath()
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func test_elements()
+    {
+        let oval = UIBezierPath(ovalInRect: CGRect(origin: CGPointZero, size: CGSize(width: 100, height: 100)))
+        
+        XCTAssertGreaterThan(oval.elements.count, 2)
+        
+        XCTAssertEqual(path.elements.count, 5)
+        
+        XCTAssertEqual(path.elements[1], PathElement.AddLineToPoint(CGPoint(x: 20, y: 20)))
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_init_elements()
+    {
+        XCTAssertEqual(UIBezierPath(elements: []).elements.count, 0)
+        
+        XCTAssertEqual(UIBezierPath(elements: path.elements).elements.count, 5)
+
+        XCTAssertEqual(UIBezierPath(elements: [PathElement.MoveToPoint(CGPointZero)]).elements.count, 1)
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }

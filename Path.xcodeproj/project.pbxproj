@@ -7,9 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F77117B1C872FAD00B6B218 /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F77117A1C872FAD00B6B218 /* Plus.swift */; };
+		8F77117D1C8730F200B6B218 /* Bars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F77117C1C8730F200B6B218 /* Bars.swift */; };
 		8F7E0C761C85E00D00C2104D /* Path.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F7E0C751C85E00D00C2104D /* Path.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8F7E0C7D1C85E00D00C2104D /* Path.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0C721C85E00D00C2104D /* Path.framework */; };
 		8F7E0C821C85E00D00C2104D /* PathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0C811C85E00D00C2104D /* PathTests.swift */; };
+		8F7E0C8E1C85E27C00C2104D /* PathElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0C8D1C85E27C00C2104D /* PathElement.swift */; };
+		8F7E0C901C85FBC600C2104D /* GraphicsPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0C8F1C85FBC600C2104D /* GraphicsPath.swift */; };
+		8F7E0C921C86F90400C2104D /* CGPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0C911C86F90400C2104D /* CGPath.swift */; };
+		8F7E0C941C86FCF800C2104D /* UIBezierPath+Elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0C931C86FCF800C2104D /* UIBezierPath+Elements.swift */; };
+		8F7E0C961C86FE3400C2104D /* UIBezierPath+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0C951C86FE3400C2104D /* UIBezierPath+Text.swift */; };
+		8F7E0C981C86FE8600C2104D /* UIBezierPath+Curves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0C971C86FE8600C2104D /* UIBezierPath+Curves.swift */; };
+		8F7E0C9A1C86FE9D00C2104D /* CubicBezierCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0C991C86FE9D00C2104D /* CubicBezierCurve.swift */; };
+		8F7E0C9D1C86FF1100C2104D /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 8F7E0C9C1C86FF1100C2104D /* Cartfile */; };
+		8F7E0CA21C8701CE00C2104D /* Arithmetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0C9E1C8701CD00C2104D /* Arithmetic.framework */; };
+		8F7E0CA31C8701CE00C2104D /* Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0C9F1C8701CE00C2104D /* Collections.framework */; };
+		8F7E0CA41C8701CE00C2104D /* Geometry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0CA01C8701CE00C2104D /* Geometry.framework */; };
+		8F7E0CA51C8701CE00C2104D /* Graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0CA11C8701CE00C2104D /* Graphics.framework */; };
+		8F7E0CA71C87095900C2104D /* UIBezierPath+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0CA61C87095900C2104D /* UIBezierPath+Image.swift */; };
+		8F7E0CA91C870A1800C2104D /* Spiral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0CA81C870A1800C2104D /* Spiral.swift */; };
+		8F7E0CAB1C870B5200C2104D /* Cresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0CAA1C870B5200C2104D /* Cresent.swift */; };
+		8F7E0CAD1C870CFE00C2104D /* Polygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0CAC1C870CFE00C2104D /* Polygon.swift */; };
+		8FCAE9311C87171900D69136 /* SuperEllipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCAE9301C87171900D69136 /* SuperEllipse.swift */; };
+		8FCAE9331C87183100D69136 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCAE9321C87183100D69136 /* Star.swift */; };
+		8FCAE9351C87184B00D69136 /* Drop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCAE9341C87184B00D69136 /* Drop.swift */; };
+		8FCAE9371C8718D000D69136 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCAE9361C8718D000D69136 /* Vector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +45,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F77117A1C872FAD00B6B218 /* Plus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
+		8F77117C1C8730F200B6B218 /* Bars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bars.swift; sourceTree = "<group>"; };
 		8F7E0C721C85E00D00C2104D /* Path.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Path.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F7E0C751C85E00D00C2104D /* Path.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Path.h; sourceTree = "<group>"; };
 		8F7E0C771C85E00D00C2104D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F7E0C7C1C85E00D00C2104D /* PathTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PathTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F7E0C811C85E00D00C2104D /* PathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathTests.swift; sourceTree = "<group>"; };
 		8F7E0C831C85E00D00C2104D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F7E0C8D1C85E27C00C2104D /* PathElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathElement.swift; sourceTree = "<group>"; };
+		8F7E0C8F1C85FBC600C2104D /* GraphicsPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicsPath.swift; sourceTree = "<group>"; };
+		8F7E0C911C86F90400C2104D /* CGPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPath.swift; sourceTree = "<group>"; };
+		8F7E0C931C86FCF800C2104D /* UIBezierPath+Elements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Elements.swift"; sourceTree = "<group>"; };
+		8F7E0C951C86FE3400C2104D /* UIBezierPath+Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Text.swift"; sourceTree = "<group>"; };
+		8F7E0C971C86FE8600C2104D /* UIBezierPath+Curves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Curves.swift"; sourceTree = "<group>"; };
+		8F7E0C991C86FE9D00C2104D /* CubicBezierCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubicBezierCurve.swift; sourceTree = "<group>"; };
+		8F7E0C9C1C86FF1100C2104D /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		8F7E0C9E1C8701CD00C2104D /* Arithmetic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Arithmetic.framework; path = Carthage/Build/iOS/Arithmetic.framework; sourceTree = "<group>"; };
+		8F7E0C9F1C8701CE00C2104D /* Collections.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collections.framework; path = Carthage/Build/iOS/Collections.framework; sourceTree = "<group>"; };
+		8F7E0CA01C8701CE00C2104D /* Geometry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Geometry.framework; path = Carthage/Build/iOS/Geometry.framework; sourceTree = "<group>"; };
+		8F7E0CA11C8701CE00C2104D /* Graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Graphics.framework; path = Carthage/Build/iOS/Graphics.framework; sourceTree = "<group>"; };
+		8F7E0CA61C87095900C2104D /* UIBezierPath+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Image.swift"; sourceTree = "<group>"; };
+		8F7E0CA81C870A1800C2104D /* Spiral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spiral.swift; sourceTree = "<group>"; };
+		8F7E0CAA1C870B5200C2104D /* Cresent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cresent.swift; sourceTree = "<group>"; };
+		8F7E0CAC1C870CFE00C2104D /* Polygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polygon.swift; sourceTree = "<group>"; };
+		8FCAE9301C87171900D69136 /* SuperEllipse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperEllipse.swift; sourceTree = "<group>"; };
+		8FCAE9321C87183100D69136 /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
+		8FCAE9341C87184B00D69136 /* Drop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drop.swift; sourceTree = "<group>"; };
+		8FCAE9361C8718D000D69136 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +80,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F7E0CA21C8701CE00C2104D /* Arithmetic.framework in Frameworks */,
+				8F7E0CA31C8701CE00C2104D /* Collections.framework in Frameworks */,
+				8F7E0CA41C8701CE00C2104D /* Geometry.framework in Frameworks */,
+				8F7E0CA51C8701CE00C2104D /* Graphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +101,11 @@
 		8F7E0C681C85E00D00C2104D = {
 			isa = PBXGroup;
 			children = (
+				8F7E0C9E1C8701CD00C2104D /* Arithmetic.framework */,
+				8F7E0C9F1C8701CE00C2104D /* Collections.framework */,
+				8F7E0CA01C8701CE00C2104D /* Geometry.framework */,
+				8F7E0CA11C8701CE00C2104D /* Graphics.framework */,
+				8F7E0C9C1C86FF1100C2104D /* Cartfile */,
 				8F7E0C741C85E00D00C2104D /* Path */,
 				8F7E0C801C85E00D00C2104D /* PathTests */,
 				8F7E0C731C85E00D00C2104D /* Products */,
@@ -71,8 +124,23 @@
 		8F7E0C741C85E00D00C2104D /* Path */ = {
 			isa = PBXGroup;
 			children = (
-				8F7E0C751C85E00D00C2104D /* Path.h */,
-				8F7E0C771C85E00D00C2104D /* Info.plist */,
+				8F7E0C8D1C85E27C00C2104D /* PathElement.swift */,
+				8F7E0C931C86FCF800C2104D /* UIBezierPath+Elements.swift */,
+				8F7E0C951C86FE3400C2104D /* UIBezierPath+Text.swift */,
+				8F7E0CA61C87095900C2104D /* UIBezierPath+Image.swift */,
+				8F7E0CA81C870A1800C2104D /* Spiral.swift */,
+				8F7E0CAA1C870B5200C2104D /* Cresent.swift */,
+				8F7E0CAC1C870CFE00C2104D /* Polygon.swift */,
+				8FCAE9301C87171900D69136 /* SuperEllipse.swift */,
+				8FCAE9321C87183100D69136 /* Star.swift */,
+				8FCAE9341C87184B00D69136 /* Drop.swift */,
+				8FCAE9361C8718D000D69136 /* Vector.swift */,
+				8F77117A1C872FAD00B6B218 /* Plus.swift */,
+				8F77117C1C8730F200B6B218 /* Bars.swift */,
+				8F7E0C9B1C86FEAD00C2104D /* Curves */,
+				8F7E0C8F1C85FBC600C2104D /* GraphicsPath.swift */,
+				8F7E0C911C86F90400C2104D /* CGPath.swift */,
+				8F7E0C8C1C85E0AA00C2104D /* Supporting Files */,
 			);
 			path = Path;
 			sourceTree = "<group>";
@@ -84,6 +152,24 @@
 				8F7E0C831C85E00D00C2104D /* Info.plist */,
 			);
 			path = PathTests;
+			sourceTree = "<group>";
+		};
+		8F7E0C8C1C85E0AA00C2104D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8F7E0C751C85E00D00C2104D /* Path.h */,
+				8F7E0C771C85E00D00C2104D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8F7E0C9B1C86FEAD00C2104D /* Curves */ = {
+			isa = PBXGroup;
+			children = (
+				8F7E0C991C86FE9D00C2104D /* CubicBezierCurve.swift */,
+				8F7E0C971C86FE8600C2104D /* UIBezierPath+Curves.swift */,
+			);
+			name = Curves;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F7E0C9D1C86FF1100C2104D /* Cartfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +281,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F7E0CA91C870A1800C2104D /* Spiral.swift in Sources */,
+				8FCAE9311C87171900D69136 /* SuperEllipse.swift in Sources */,
+				8F7E0C8E1C85E27C00C2104D /* PathElement.swift in Sources */,
+				8F7E0CAB1C870B5200C2104D /* Cresent.swift in Sources */,
+				8F77117D1C8730F200B6B218 /* Bars.swift in Sources */,
+				8F7E0C901C85FBC600C2104D /* GraphicsPath.swift in Sources */,
+				8FCAE9331C87183100D69136 /* Star.swift in Sources */,
+				8F7E0C9A1C86FE9D00C2104D /* CubicBezierCurve.swift in Sources */,
+				8FCAE9371C8718D000D69136 /* Vector.swift in Sources */,
+				8F7E0CAD1C870CFE00C2104D /* Polygon.swift in Sources */,
+				8F77117B1C872FAD00B6B218 /* Plus.swift in Sources */,
+				8F7E0C941C86FCF800C2104D /* UIBezierPath+Elements.swift in Sources */,
+				8F7E0C921C86F90400C2104D /* CGPath.swift in Sources */,
+				8F7E0CA71C87095900C2104D /* UIBezierPath+Image.swift in Sources */,
+				8F7E0C961C86FE3400C2104D /* UIBezierPath+Text.swift in Sources */,
+				8FCAE9351C87184B00D69136 /* Drop.swift in Sources */,
+				8F7E0C981C86FE8600C2104D /* UIBezierPath+Curves.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,26 +412,37 @@
 		8F7E0C871C85E00D00C2104D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Path/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverback-it.Path";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		8F7E0C881C85E00D00C2104D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Path/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -376,6 +491,7 @@
 				8F7E0C881C85E00D00C2104D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8F7E0C891C85E00D00C2104D /* Build configuration list for PBXNativeTarget "PathTests" */ = {
 			isa = XCConfigurationList;
@@ -384,6 +500,7 @@
 				8F7E0C8B1C85E00D00C2104D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
