@@ -24,7 +24,6 @@
 		8F7E0C9D1C86FF1100C2104D /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 8F7E0C9C1C86FF1100C2104D /* Cartfile */; };
 		8F7E0CA21C8701CE00C2104D /* Arithmetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0C9E1C8701CD00C2104D /* Arithmetic.framework */; };
 		8F7E0CA31C8701CE00C2104D /* Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0C9F1C8701CE00C2104D /* Collections.framework */; };
-		8F7E0CA41C8701CE00C2104D /* Geometry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0CA01C8701CE00C2104D /* Geometry.framework */; };
 		8F7E0CA51C8701CE00C2104D /* Graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0CA11C8701CE00C2104D /* Graphics.framework */; };
 		8F7E0CA71C87095900C2104D /* UIBezierPath+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0CA61C87095900C2104D /* UIBezierPath+Image.swift */; };
 		8F7E0CA91C870A1800C2104D /* Spiral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0CA81C870A1800C2104D /* Spiral.swift */; };
@@ -67,7 +66,6 @@
 		8F7E0C9C1C86FF1100C2104D /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		8F7E0C9E1C8701CD00C2104D /* Arithmetic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Arithmetic.framework; path = Carthage/Build/iOS/Arithmetic.framework; sourceTree = "<group>"; };
 		8F7E0C9F1C8701CE00C2104D /* Collections.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collections.framework; path = Carthage/Build/iOS/Collections.framework; sourceTree = "<group>"; };
-		8F7E0CA01C8701CE00C2104D /* Geometry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Geometry.framework; path = Carthage/Build/iOS/Geometry.framework; sourceTree = "<group>"; };
 		8F7E0CA11C8701CE00C2104D /* Graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Graphics.framework; path = Carthage/Build/iOS/Graphics.framework; sourceTree = "<group>"; };
 		8F7E0CA61C87095900C2104D /* UIBezierPath+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Image.swift"; sourceTree = "<group>"; };
 		8F7E0CA81C870A1800C2104D /* Spiral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spiral.swift; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 			files = (
 				8F7E0CA21C8701CE00C2104D /* Arithmetic.framework in Frameworks */,
 				8F7E0CA31C8701CE00C2104D /* Collections.framework in Frameworks */,
-				8F7E0CA41C8701CE00C2104D /* Geometry.framework in Frameworks */,
 				8F7E0CA51C8701CE00C2104D /* Graphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,7 +104,6 @@
 			children = (
 				8F7E0C9E1C8701CD00C2104D /* Arithmetic.framework */,
 				8F7E0C9F1C8701CE00C2104D /* Collections.framework */,
-				8F7E0CA01C8701CE00C2104D /* Geometry.framework */,
 				8F7E0CA11C8701CE00C2104D /* Graphics.framework */,
 				8F7E0C9C1C86FF1100C2104D /* Cartfile */,
 				8F7E0C741C85E00D00C2104D /* Path */,

@@ -8,7 +8,6 @@
 
 import Foundation
 import Arithmetic
-import Geometry
 import Graphics
 import Collections
 

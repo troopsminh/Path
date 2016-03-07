@@ -11,7 +11,7 @@ public enum LineCap
     case Butt, Round, Square
     
     var caLineCap : String
-        {
+        { 
             switch self
             {
             case .Butt: return kCALineCapButt

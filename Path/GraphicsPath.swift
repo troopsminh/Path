@@ -9,7 +9,6 @@
 import UIKit
 import Arithmetic
 import Graphics
-import Geometry
 
 public class GraphicsPath
 {
@@ -72,9 +71,9 @@ public class GraphicsPath
                 
                 
             case .AddLineToPoint(let endPoint):
-                
-                let ctrlPoint1 = (2 * beginPoint + endPoint) / 3
-                let ctrlPoint2 = (beginPoint + 2 * endPoint) / 3
+               
+                let ctrlPoint1 = (beginPoint * 2 + endPoint) / 3
+                let ctrlPoint2 = (beginPoint + endPoint * 2) / 3
                 
                 curves.append(CubicBezierCurve(p0: beginPoint, p1: ctrlPoint1, p2: ctrlPoint2, p3: endPoint))
                 
@@ -84,8 +83,8 @@ public class GraphicsPath
             case .AddQuadCurveToPoint(let ctrlPoint, let endPoint):
                 
                 // A quadratic Bezier curve can be always represented by a cubic one by applying the degree elevation algorithm. The resulting cubic representation will share its anchor points with the original quadratic, while the control points will be at 2/3 of the quadratic handle segments:
-                let ctrlPoint1 = (2 * ctrlPoint + beginPoint) / 3
-                let ctrlPoint2 = (2 * ctrlPoint + endPoint) / 3
+                let ctrlPoint1 = (ctrlPoint * 2 + beginPoint) / 3
+                let ctrlPoint2 = (ctrlPoint * 2 + endPoint) / 3
                 
                 curves.append(CubicBezierCurve(p0: beginPoint, p1: ctrlPoint1, p2: ctrlPoint2, p3: endPoint))
                 
@@ -102,8 +101,8 @@ public class GraphicsPath
                 
                 let endPoint = subPathBeginPoint
                 
-                let ctrlPoint1 = (2 * beginPoint + endPoint) / 3
-                let ctrlPoint2 = (beginPoint + 2 * endPoint) / 3
+                let ctrlPoint1 = (beginPoint * 2 + endPoint) / 3
+                let ctrlPoint2 = (beginPoint + endPoint * 2) / 3
                 
                 curves.append(CubicBezierCurve(p0: beginPoint, p1: ctrlPoint1, p2: ctrlPoint2, p3: endPoint))
                 

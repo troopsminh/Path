@@ -6,7 +6,6 @@
 //  Copyright © 2016 Christian Otkjær. All rights reserved.
 //
 
-
 // MARK: - Plus
 
 extension UIBezierPath
@@ -15,7 +14,7 @@ extension UIBezierPath
     {
         self.init()
         
-        let bounds = CGRect(center: rect.center, size: CGSize(widthAndHeight: rect.minWidthHeight))
+        let bounds = CGRect(center: rect.center, size: CGSize(rect.minWidthHeight))
         
         moveToPoint(bounds.topCenter)
         addLineToPoint(bounds.bottomCenter)
@@ -27,6 +26,6 @@ extension UIBezierPath
     
     public convenience init(plusWithCenter center: CGPoint = CGPointZero, radius: CGFloat)
     {
-        self.init(plusInRect: CGRect(center: center, size: CGSize(widthAndHeight: radius * 2)))
+        self.init(plusInRect: CGRect(center: center, size: CGSize(radius * 2)))
     }
 }

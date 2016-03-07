@@ -8,7 +8,6 @@
 
 import UIKit
 import Arithmetic
-import Geometry
 import Graphics
 import Collections
 
@@ -195,7 +194,7 @@ public class CubicBezierCurve
             
             let point = positionAt(t)
             
-            path = UIBezierPath(rect: CGRect(center: point, size: CGSize(widthAndHeight: radius)))
+            path = UIBezierPath(rect: CGRect(center: point, size: CGSize(radius)))
             
             path.fill()
             
