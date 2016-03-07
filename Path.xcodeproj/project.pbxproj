@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F4B32C01C8DA11E00275253 /* UIBezierPath+Dash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B32BF1C8DA11E00275253 /* UIBezierPath+Dash.swift */; };
 		8F77117B1C872FAD00B6B218 /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F77117A1C872FAD00B6B218 /* Plus.swift */; };
 		8F77117D1C8730F200B6B218 /* Bars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F77117C1C8730F200B6B218 /* Bars.swift */; };
 		8F7711FC1C897EA900B6B218 /* LineJoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7711FB1C897EA900B6B218 /* LineJoin.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F4B32BF1C8DA11E00275253 /* UIBezierPath+Dash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Dash.swift"; sourceTree = "<group>"; };
 		8F77117A1C872FAD00B6B218 /* Plus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
 		8F77117C1C8730F200B6B218 /* Bars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bars.swift; sourceTree = "<group>"; };
 		8F7711FB1C897EA900B6B218 /* LineJoin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineJoin.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				8F7E0C931C86FCF800C2104D /* UIBezierPath+Elements.swift */,
 				8F7E0C951C86FE3400C2104D /* UIBezierPath+Text.swift */,
 				8F7E0CA61C87095900C2104D /* UIBezierPath+Image.swift */,
+				8F4B32BF1C8DA11E00275253 /* UIBezierPath+Dash.swift */,
 				8F7711FB1C897EA900B6B218 /* LineJoin.swift */,
 				8F7711FD1C897F8300B6B218 /* LineCap.swift */,
 				8F7E0CA81C870A1800C2104D /* Spiral.swift */,
@@ -284,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F7E0CA91C870A1800C2104D /* Spiral.swift in Sources */,
+				8F4B32C01C8DA11E00275253 /* UIBezierPath+Dash.swift in Sources */,
 				8FCAE9311C87171900D69136 /* SuperEllipse.swift in Sources */,
 				8F7711FE1C897F8300B6B218 /* LineCap.swift in Sources */,
 				8F7E0C8E1C85E27C00C2104D /* PathElement.swift in Sources */,
@@ -460,7 +464,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = PathTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverback-it.PathTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -470,7 +474,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = PathTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverback-it.PathTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -25,13 +25,13 @@ extension UIBezierPath
     }
 }
 
-extension UIBezierPath : SequenceType
-{
-    public func generate() -> AnyGenerator<PathElement>
-    {
-        return anyGenerator(elements.generate())
-    }
-}
+//extension UIBezierPath : SequenceType
+//{
+//    public func generate() -> AnyGenerator<PathElement>
+//    {
+//        return anyGenerator(elements.generate())
+//    }
+//}
 
 extension UIBezierPath : CustomDebugStringConvertible
 {

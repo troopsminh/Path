@@ -11,9 +11,8 @@ import Graphics
 public extension UIBezierPath
 {
     func image(
-        strokeColor: UIColor? = UIColor.blackColor(),
+        strokeColor strokeColor: UIColor? = UIColor.blackColor(),
         fillColor: UIColor? = nil,
-        lineWidth: CGFloat = 1,
         backgroundColor: UIColor? = nil) -> UIImage
     {
         let frame = bounds.insetBy(dx: -lineWidth, dy: -lineWidth).integral

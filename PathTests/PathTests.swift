@@ -41,4 +41,15 @@ class PathTests: XCTestCase
 
         XCTAssertEqual(UIBezierPath(elements: [PathElement.MoveToPoint(CGPointZero)]).elements.count, 1)
     }
+
+    func test_image()
+    {
+        path.lineWidth = 5
+        path.setLineDash([2,2])
+        path.lineJoinStyle = .Round
+        
+        let image = path.image(strokeColor: UIColor.redColor(), fillColor: UIColor.whiteColor(), backgroundColor: nil)
+        
+        XCTAssertNotNil(image)
+    }
 }
