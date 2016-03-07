@@ -8,7 +8,6 @@
 
 import XCTest
 @testable import Path
-//import Arithmetic
 
 class PathTests: XCTestCase
 {
@@ -54,6 +53,40 @@ class PathTests: XCTestCase
         XCTAssertNotNil(image)
     }
     
+    func test_scaleToFit()
+    {
+        path.scaleToFit(CGSize(10,10))
+        
+        XCTAssertLessThanOrEqual(path.bounds.width, 10)
+        XCTAssertLessThanOrEqual(path.bounds.height, 10)
+    }
+    
+    func test_transformToFit()
+    {
+        let rect = CGRect(x: 100, y: 10, width: 50, height: 400)
+        
+        path.transformToFit(rect)
+        
+        path.appendPath(UIBezierPath(rect: rect))
+        
+        XCTAssertLessThanOrEqual(path.bounds.width, 50)
+        XCTAssertLessThanOrEqual(path.bounds.height, 400)
+    }
+    
+
+    func test_transformToFit_top()
+    {
+        let rect = CGRect(x: 100, y: 10, width: 50, height: 400)
+        
+        path.transformToFit(rect, alignment: CGPoint(0.5, 1))
+        
+        path.appendPath(UIBezierPath(rect: rect))
+        
+        XCTAssertLessThanOrEqual(path.bounds.width, 50)
+        XCTAssertLessThanOrEqual(path.bounds.height, 400)
+    }
+    
+
     
     func test_equality()
     {
