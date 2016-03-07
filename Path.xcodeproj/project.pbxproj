@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		8F4B32C01C8DA11E00275253 /* UIBezierPath+Dash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B32BF1C8DA11E00275253 /* UIBezierPath+Dash.swift */; };
 		8F4B32C21C8DA7BB00275253 /* UIBezierPath+Equality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B32C11C8DA7BB00275253 /* UIBezierPath+Equality.swift */; };
+		8F4B32C31C8DAA0900275253 /* Arithmetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0C9E1C8701CD00C2104D /* Arithmetic.framework */; };
+		8F4B32C41C8DAA0900275253 /* Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0C9F1C8701CE00C2104D /* Collections.framework */; };
+		8F4B32C51C8DAA0900275253 /* Graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0CA11C8701CE00C2104D /* Graphics.framework */; };
 		8F77117B1C872FAD00B6B218 /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F77117A1C872FAD00B6B218 /* Plus.swift */; };
 		8F77117D1C8730F200B6B218 /* Bars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F77117C1C8730F200B6B218 /* Bars.swift */; };
 		8F7711FC1C897EA900B6B218 /* LineJoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7711FB1C897EA900B6B218 /* LineJoin.swift */; };
@@ -96,6 +99,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F4B32C31C8DAA0900275253 /* Arithmetic.framework in Frameworks */,
+				8F4B32C41C8DAA0900275253 /* Collections.framework in Frameworks */,
+				8F4B32C51C8DAA0900275253 /* Graphics.framework in Frameworks */,
 				8F7E0C7D1C85E00D00C2104D /* Path.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,6 +473,10 @@
 		8F7E0C8A1C85E00D00C2104D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PathTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverback-it.PathTests";
@@ -477,6 +487,10 @@
 		8F7E0C8B1C85E00D00C2104D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PathTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverback-it.PathTests";

@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import Path
+//import Arithmetic
 
 class PathTests: XCTestCase
 {
@@ -52,4 +53,35 @@ class PathTests: XCTestCase
         
         XCTAssertNotNil(image)
     }
+    
+    
+    func test_equality()
+    {
+        let p1 = UIBezierPath()
+        let p2 = UIBezierPath()
+        
+        XCTAssert(p1 == p1)
+        XCTAssert(p2 == p2)
+        XCTAssert(p1 == p2)
+        XCTAssertFalse(p1 === p2)
+        
+        let point = CGPoint(3,4)
+        
+        p1.moveToPoint(point)
+        XCTAssert(p1 != p2)
+        
+        p2.moveToPoint(point)
+        XCTAssert(p1 == p2)
+        
+        let p3 = UIBezierPath()
+        
+        p3.moveToPoint(CGPoint(x: 10, y: 10))
+        p3.addLineToPoint(CGPoint(x: 20, y: 20))
+        p3.addQuadCurveToPoint(CGPoint(x: 100, y: 10), controlPoint: CGPoint(x: 50, y: 100))
+        p3.addCurveToPoint(CGPoint(x: 50, y: 0), controlPoint1: CGPoint(x: 75, y: 100), controlPoint2: CGPoint(x: 10, y: -100))
+        p3.closePath()
+        
+        XCTAssertEqual(p3, path)
+    }
+
 }
