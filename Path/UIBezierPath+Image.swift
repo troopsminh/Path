@@ -17,7 +17,7 @@ public extension UIBezierPath
     {
         let frame = strokeBounds.integral
         
-        let path = self.translated(tx: 1 - frame.minX, ty: -frame.size.height - frame.minY).flippedVertically()
+        let path = self.translated(tx: -frame.minX, ty: -frame.size.height - frame.minY).flippedVertically()
 
         let opaque = backgroundColor?.CGColor.alpha == 1
         

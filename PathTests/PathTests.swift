@@ -48,9 +48,17 @@ class PathTests: XCTestCase
         path.setLineDash([2,2])
         path.lineJoinStyle = .Round
         
-        let image = path.image(strokeColor: UIColor.redColor(), fillColor: UIColor.whiteColor(), backgroundColor: nil)
+        var image = path.image(strokeColor: UIColor.redColor(), fillColor: UIColor.whiteColor(), backgroundColor: nil)
         
         XCTAssertNotNil(image)
+        
+        let circle = UIBezierPath(ovalInRect: CGRect(size: CGSize(500)))
+        circle.lineWidth = 25
+        
+        image = circle.image(strokeColor: UIColor.redColor(), fillColor: UIColor.yellowColor(), backgroundColor: UIColor.whiteColor())
+        
+        XCTAssertNotNil(image)
+        
     }
     
     func test_stroke_bounds()
