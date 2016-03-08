@@ -66,10 +66,15 @@ public extension UIBezierPath
     {
         return scaled(sx: v[0], sy: v[0])
     }
-    
-    func scale(sx sx: CGFloat, sy: CGFloat)
+
+    func scale<F: CGFloatConvertible>(s: F)
     {
-        applyTransform(CGAffineTransformMakeScale(sx, sy))
+        scale(sx: s, sy: s)
+    }
+    
+    func scale<F1: CGFloatConvertible, F2: CGFloatConvertible>(sx sx: F1, sy: F2)
+    {
+        applyTransform(CGAffineTransformMakeScale(CGFloat(sx), CGFloat(sy)))
     }
     
     func scaled(sx sx: CGFloat, sy: CGFloat) -> UIBezierPath

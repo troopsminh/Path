@@ -70,16 +70,15 @@ class PathTests: XCTestCase
         XCTAssertEqual(strokeBounds.maxY, 210)
         XCTAssertEqual(strokeBounds.minX, -10)
         XCTAssertEqual(strokeBounds.maxX, 110)
-        
-        
     }
     
     func test_scaleToFit()
     {
-        path.scaleToFit(CGSize(10,10))
+        path.lineWidth = 10
+        path.scaleToFit(CGSize(1000))
         
-        XCTAssertLessThanOrEqual(path.bounds.width, 10)
-        XCTAssertLessThanOrEqual(path.bounds.height, 10)
+        XCTAssertLessThanOrEqual(path.bounds.width, 1000)
+        XCTAssertLessThanOrEqual(path.bounds.height, 1000)
     }
     
     func test_transformToFit()

@@ -37,7 +37,7 @@ public extension UIBezierPath
             path.fill()
         }
         
-        if strokeColor?.CGColor.alpha > 0
+        if strokeColor?.CGColor.alpha > 0 && lineWidth > 0
         {
             strokeColor?.setStroke()
             path.stroke()

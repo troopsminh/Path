@@ -22,7 +22,7 @@ public extension UIBezierPath
 {
     func scaleToFit(size: CGSize)
     {
-        let pathBounds = self.bounds
+        let pathBounds = bounds
         
         let scaleFactor = min(size.width / pathBounds.width, size.height / pathBounds.height)
         
@@ -31,7 +31,7 @@ public extension UIBezierPath
     
     func alignIn(rect: CGRect, alignment: CGPoint = CGPoint(0.5, 0.5))
     {
-        let pathBounds = strokeBounds
+        let pathBounds = bounds
         
         let width = (rect.width - pathBounds.width) / 2
         let height = (rect.height - pathBounds.height) / 2
