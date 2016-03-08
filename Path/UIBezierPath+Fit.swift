@@ -31,7 +31,7 @@ public extension UIBezierPath
     
     func alignIn(rect: CGRect, alignment: CGPoint = CGPoint(0.5, 0.5))
     {
-        let pathBounds = self.bounds
+        let pathBounds = strokeBounds
         
         let width = (rect.width - pathBounds.width) / 2
         let height = (rect.height - pathBounds.height) / 2
