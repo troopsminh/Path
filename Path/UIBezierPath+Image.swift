@@ -15,12 +15,9 @@ public extension UIBezierPath
         fillColor: UIColor? = nil,
         backgroundColor: UIColor? = nil) -> UIImage
     {
-        let frame = bounds.insetBy(dx: -lineWidth, dy: -lineWidth).integral
+        let frame = strokeBounds.integral
         
-        let path = self
-        
-        path.applyTransform(CGAffineTransformMakeTranslation(1 - frame.minX, -frame.size.height - frame.minY))
-        path.applyTransform(CGAffineTransformMakeScale(1, -1))
+        let path = self.translated(tx: 1 - frame.minX, ty: -frame.size.height - frame.minY).flippedVertically()
 
         let opaque = backgroundColor?.CGColor.alpha == 1
         
@@ -31,7 +28,7 @@ public extension UIBezierPath
         {
             backgroundColor?.setFill()
             
-            UIBezierPath(rect: path.bounds).fill()
+            UIBezierPath(rect: CGRect(size: frame.size)).fill()
         }
         
         if fillColor?.CGColor.alpha > 0

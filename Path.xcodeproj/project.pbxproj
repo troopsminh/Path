@@ -14,6 +14,7 @@
 		8F4B32C51C8DAA0900275253 /* Graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0CA11C8701CE00C2104D /* Graphics.framework */; };
 		8F4B32C71C8DAEC700275253 /* UIBezierPath+Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B32C61C8DAEC700275253 /* UIBezierPath+Fit.swift */; };
 		8F4B32C91C8DB8AC00275253 /* UIBezierPath+Transfom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B32C81C8DB8AC00275253 /* UIBezierPath+Transfom.swift */; };
+		8F4B32CB1C8ECDCB00275253 /* UIBezierPath+Bounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B32CA1C8ECDCB00275253 /* UIBezierPath+Bounds.swift */; };
 		8F77117B1C872FAD00B6B218 /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F77117A1C872FAD00B6B218 /* Plus.swift */; };
 		8F77117D1C8730F200B6B218 /* Bars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F77117C1C8730F200B6B218 /* Bars.swift */; };
 		8F7711FC1C897EA900B6B218 /* LineJoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7711FB1C897EA900B6B218 /* LineJoin.swift */; };
@@ -57,6 +58,7 @@
 		8F4B32C11C8DA7BB00275253 /* UIBezierPath+Equality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Equality.swift"; sourceTree = "<group>"; };
 		8F4B32C61C8DAEC700275253 /* UIBezierPath+Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Fit.swift"; sourceTree = "<group>"; };
 		8F4B32C81C8DB8AC00275253 /* UIBezierPath+Transfom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Transfom.swift"; sourceTree = "<group>"; };
+		8F4B32CA1C8ECDCB00275253 /* UIBezierPath+Bounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Bounds.swift"; sourceTree = "<group>"; };
 		8F77117A1C872FAD00B6B218 /* Plus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
 		8F77117C1C8730F200B6B218 /* Bars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bars.swift; sourceTree = "<group>"; };
 		8F7711FB1C897EA900B6B218 /* LineJoin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineJoin.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				8F4B32BF1C8DA11E00275253 /* UIBezierPath+Dash.swift */,
 				8F4B32C11C8DA7BB00275253 /* UIBezierPath+Equality.swift */,
 				8F4B32C61C8DAEC700275253 /* UIBezierPath+Fit.swift */,
+				8F4B32CA1C8ECDCB00275253 /* UIBezierPath+Bounds.swift */,
 				8F7711FB1C897EA900B6B218 /* LineJoin.swift */,
 				8F7711FD1C897F8300B6B218 /* LineCap.swift */,
 				8F7E0CA81C870A1800C2104D /* Spiral.swift */,
@@ -315,6 +318,7 @@
 				8FCAE9331C87183100D69136 /* Star.swift in Sources */,
 				8F7E0C9A1C86FE9D00C2104D /* CubicBezierCurve.swift in Sources */,
 				8FCAE9371C8718D000D69136 /* Vector.swift in Sources */,
+				8F4B32CB1C8ECDCB00275253 /* UIBezierPath+Bounds.swift in Sources */,
 				8F7E0CAD1C870CFE00C2104D /* Polygon.swift in Sources */,
 				8F77117B1C872FAD00B6B218 /* Plus.swift in Sources */,
 				8F7E0C941C86FCF800C2104D /* UIBezierPath+Elements.swift in Sources */,

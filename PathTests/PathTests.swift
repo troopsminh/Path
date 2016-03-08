@@ -44,13 +44,34 @@ class PathTests: XCTestCase
 
     func test_image()
     {
-        path.lineWidth = 5
+        path.lineWidth = 25
         path.setLineDash([2,2])
         path.lineJoinStyle = .Round
         
         let image = path.image(strokeColor: UIColor.redColor(), fillColor: UIColor.whiteColor(), backgroundColor: nil)
         
         XCTAssertNotNil(image)
+    }
+    
+    func test_stroke_bounds()
+    {
+        let rect = UIBezierPath(rect: CGRect(size: CGSize(100, 200)))
+
+        rect.lineWidth = 20
+
+        XCTAssertEqual(rect.bounds.minY, 0)
+        XCTAssertEqual(rect.bounds.maxY, 200)
+        XCTAssertEqual(rect.bounds.minX, 0)
+        XCTAssertEqual(rect.bounds.maxX, 100)
+        
+        let strokeBounds = rect.strokeBounds
+        
+        XCTAssertEqual(strokeBounds.minY, -10)
+        XCTAssertEqual(strokeBounds.maxY, 210)
+        XCTAssertEqual(strokeBounds.minX, -10)
+        XCTAssertEqual(strokeBounds.maxX, 110)
+        
+        
     }
     
     func test_scaleToFit()
@@ -73,7 +94,6 @@ class PathTests: XCTestCase
         XCTAssertLessThanOrEqual(path.bounds.height, 400)
     }
     
-
     func test_transformToFit_top()
     {
         let rect = CGRect(x: 100, y: 10, width: 50, height: 400)
@@ -85,8 +105,6 @@ class PathTests: XCTestCase
         XCTAssertLessThanOrEqual(path.bounds.width, 50)
         XCTAssertLessThanOrEqual(path.bounds.height, 400)
     }
-    
-
     
     func test_equality()
     {

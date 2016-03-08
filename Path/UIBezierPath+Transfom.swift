@@ -80,5 +80,42 @@ public extension UIBezierPath
         
         return path
     }
+    
+    // MARK: - Flipping
+    
+    func flipVertically()
+    {
+        flip(vertically: true, horizontally: false)
+    }
+    
+    func flippedVertically() -> UIBezierPath
+    {
+        return flipped(vertically: true, horizontally: false)
+    }
+
+    func flipHorizontally()
+    {
+        flip(vertically: false, horizontally: true)
+    }
+
+    func flippedHorizontally() -> UIBezierPath
+    {
+        return flipped(vertically: false, horizontally: true)
+    }
+
+    func flip(vertically vertically: Bool, horizontally: Bool)
+    {
+        scale(sx: horizontally ? -1 : 1, sy: vertically ? -1 : 1)
+    }
+    
+    func flipped(vertically vertically: Bool, horizontally: Bool) -> UIBezierPath
+    {
+        let path = self.copy() as! UIBezierPath
+        
+        path.flip(vertically: vertically, horizontally: horizontally)
+        
+        return path
+    }
+
 }
 
