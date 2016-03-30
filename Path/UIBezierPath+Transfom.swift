@@ -36,7 +36,7 @@ public extension UIBezierPath
     
     func translated<FP: CGFloatPair>(v: FP) -> UIBezierPath
     {
-        return translated(tx: v[0], ty: v[0])
+        return translated(tx: v[0], ty: v[1])
     }
     
     // MARK: - Rotate

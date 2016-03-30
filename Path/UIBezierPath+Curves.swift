@@ -52,6 +52,7 @@ extension UIBezierPath
                 
                 beginPoint = endPoint
                 
+                
             case .AddCurveToPoint(let ctrlPoint1, let ctrlPoint2, let endPoint):
                 
                 curves.append(CubicBezierCurve(p0: beginPoint, p1: ctrlPoint1, p2: ctrlPoint2, p3: endPoint))
@@ -84,9 +85,9 @@ extension UIBezierPath
 {
     // MARK: Text
     
-    public func warp(text: String, font: UIFont, textAlignment: NSTextAlignment = .Natural) -> UIBezierPath
+    public func warp(text: String?, font: UIFont, textAlignment: NSTextAlignment = .Natural) -> UIBezierPath
     {
-        let path = UIBezierPath(string: text, withFont: font)
+        let path = UIBezierPath(string: text ?? "", withFont: font)
         
         return warp(path, align: textAlignment)
     }
@@ -102,13 +103,11 @@ extension UIBezierPath
         return bounds.reduce(firstBounds) { return $0.union($1) }
     }
     
-    // MARK: Warp any other path
-
     // MARK alignment
 
     private func handleAlignment(path: UIBezierPath, length: CGFloat, alignment: NSTextAlignment) -> CGFloat
     {
-        var width = CGFloat(0)
+        let width : CGFloat
         
         switch alignment
         {
@@ -143,6 +142,8 @@ extension UIBezierPath
         
         return width
     }
+    
+    // MARK: Warp any path (along its x-axis)
     
     private func warp(path: UIBezierPath, align: NSTextAlignment = .Justified) -> UIBezierPath
     {
@@ -276,6 +277,23 @@ extension UIBezierPath
 
 public extension UIBezierPath
 {
+    convenience init(withCubicBezierCurves cs: [CubicBezierCurve])
+    {
+        self.init()
+        
+        var beginPoint : CGPoint?
+        
+        for c in cs
+        {
+            if beginPoint != c.beginPoint
+            {
+                moveToPoint(c.beginPoint)
+            }
+            addCurveToPoint(c.endPoint, controlPoint1: c.ctrlPoint1, controlPoint2: c.ctrlPoint2)
+            beginPoint = c.endPoint
+        }
+    }
+
     convenience init(withCubicBezierCurve c: CubicBezierCurve)
     {
         self.init()

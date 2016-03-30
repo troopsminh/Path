@@ -13,10 +13,14 @@ public extension UIBezierPath
     convenience init(attributedString: NSAttributedString)
     {
         self.init(CGPath: CGPathCreateSingleLineStringWithAttributedString(attributedString))
+        
+        scale(sx: 1, sy: -1)
     }
     
     convenience init(string: String, withFont font: UIFont)
     {
         self.init(attributedString: NSAttributedString(string: string, attributes: [NSFontAttributeName : font]))
+        
+//        translated(tx: 0, ty: font.ascender)
     }
 }
