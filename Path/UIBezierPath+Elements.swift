@@ -33,17 +33,17 @@ extension UIBezierPath
 //    }
 //}
 
-extension UIBezierPath : CustomDebugStringConvertible
-{
-    public override var debugDescription: String
-        {
-            let cgPath = self.CGPath
-            let bounds = CGPathGetPathBoundingBox(cgPath)
-            let controlPointBounds = CGPathGetBoundingBox(cgPath)
-            
-            return (["\(self.dynamicType)", "bounds: \(bounds)", "control-point bounds: \(controlPointBounds)"] + elements.map({ $0.debugDescription })).joinWithSeparator(",\n     ")
-    }
-}
+//extension UIBezierPath : CustomDebugStringConvertible
+//{
+//    public override var debugDescription: String
+//        {
+//            let cgPath = self.CGPath
+//            let bounds = CGPathGetPathBoundingBox(cgPath)
+//            let controlPointBounds = CGPathGetBoundingBox(cgPath)
+//            
+//            return (["\(self.dynamicType)", "bounds: \(bounds)", "control-point bounds: \(controlPointBounds)"] + elements.map({ $0.debugDescription })).joinWithSeparator(",\n     ")
+//    }
+//}
 
 //MARK: - Init Elements
 

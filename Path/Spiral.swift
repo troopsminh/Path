@@ -70,7 +70,13 @@ public extension UIBezierPath
         
         spiral.moveToPoint(lastPointAdded)
         
-        for var phi: CGFloat = 0; phi < loops * π2; phi += phiStep
+        var phi = CGFloat(0)
+        let phiMax = loops * π2
+        
+        while phi < phiMax
+//        for phi in CGFloat(0).stride(to: loops * π2, by: phiStep)
+        
+//        for var phi: CGFloat = 0; phi < loops * π2; phi += phiStep
         {
             let c = a + b * phi / (loops * π2)
             
@@ -86,6 +92,8 @@ public extension UIBezierPath
                 lastPointAdded = point
                 spiral.addLineToPoint(point)
             }
+            
+            phi += phiStep
         }
         
         spiral.translate(tx: center.x, ty: center.y)

@@ -37,6 +37,8 @@
 		8F7E0CA91C870A1800C2104D /* Spiral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0CA81C870A1800C2104D /* Spiral.swift */; };
 		8F7E0CAB1C870B5200C2104D /* Cresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0CAA1C870B5200C2104D /* Cresent.swift */; };
 		8F7E0CAD1C870CFE00C2104D /* Polygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0CAC1C870CFE00C2104D /* Polygon.swift */; };
+		8F97AD471CEEE67C002DF85C /* UIBezierPath+Align.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F97AD461CEEE67C002DF85C /* UIBezierPath+Align.swift */; };
+		8F97AD491CEEEE79002DF85C /* Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F97AD481CEEEE79002DF85C /* Alignment.swift */; };
 		8FA50D091CABC2BF005D28B6 /* PathLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA50D081CABC2BF005D28B6 /* PathLabel.swift */; };
 		8FA50D111CABC7CE005D28B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA50D101CABC7CE005D28B6 /* AppDelegate.swift */; };
 		8FA50D131CABC7CE005D28B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA50D121CABC7CE005D28B6 /* ViewController.swift */; };
@@ -122,6 +124,8 @@
 		8F7E0CA81C870A1800C2104D /* Spiral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spiral.swift; sourceTree = "<group>"; };
 		8F7E0CAA1C870B5200C2104D /* Cresent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cresent.swift; sourceTree = "<group>"; };
 		8F7E0CAC1C870CFE00C2104D /* Polygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polygon.swift; sourceTree = "<group>"; };
+		8F97AD461CEEE67C002DF85C /* UIBezierPath+Align.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Align.swift"; sourceTree = "<group>"; };
+		8F97AD481CEEEE79002DF85C /* Alignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alignment.swift; sourceTree = "<group>"; };
 		8FA50D081CABC2BF005D28B6 /* PathLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathLabel.swift; sourceTree = "<group>"; };
 		8FA50D0E1CABC7CE005D28B6 /* PathDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PathDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FA50D101CABC7CE005D28B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -208,6 +212,8 @@
 				8F4B32C11C8DA7BB00275253 /* UIBezierPath+Equality.swift */,
 				8F4B32C61C8DAEC700275253 /* UIBezierPath+Fit.swift */,
 				8F4B32CA1C8ECDCB00275253 /* UIBezierPath+Bounds.swift */,
+				8F97AD461CEEE67C002DF85C /* UIBezierPath+Align.swift */,
+				8F97AD481CEEEE79002DF85C /* Alignment.swift */,
 				8F7711FB1C897EA900B6B218 /* LineJoin.swift */,
 				8F7711FD1C897F8300B6B218 /* LineCap.swift */,
 				8F7E0CA81C870A1800C2104D /* Spiral.swift */,
@@ -420,6 +426,8 @@
 				8F7E0C8E1C85E27C00C2104D /* PathElement.swift in Sources */,
 				8F7E0CAB1C870B5200C2104D /* Cresent.swift in Sources */,
 				8F77117D1C8730F200B6B218 /* Bars.swift in Sources */,
+				8F97AD471CEEE67C002DF85C /* UIBezierPath+Align.swift in Sources */,
+				8F97AD491CEEEE79002DF85C /* Alignment.swift in Sources */,
 				8F7E0C901C85FBC600C2104D /* GraphicsPath.swift in Sources */,
 				8F4B32C21C8DA7BB00275253 /* UIBezierPath+Equality.swift in Sources */,
 				8FA50D091CABC2BF005D28B6 /* PathLabel.swift in Sources */,
@@ -720,6 +728,7 @@
 				8FA50D1F1CABC7CE005D28B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
