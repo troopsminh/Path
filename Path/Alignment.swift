@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Top-left is (0,0), bottom-right is (1,1)
 public typealias Alignment = CGPoint
 
 internal let AlignmentCenter = Alignment(x: 0.5, y: 0.5)
