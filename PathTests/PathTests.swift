@@ -193,6 +193,12 @@ class PathTests: XCTestCase
         p3.closePath()
         
         XCTAssertEqual(p3, path)
+        
+        
+        let p4 = UIBezierPath(path: p3)
+        
+        XCTAssertEqual(p3, p4)
+        XCTAssertFalse(p3 === p4)
     }
 
 }

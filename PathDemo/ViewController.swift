@@ -13,6 +13,7 @@ class ViewController: UIViewController
 {
     @IBOutlet var pathLabel: PathLabel!
     
+    @IBOutlet weak var imageView: UIImageView!
     override func viewWillAppear(animated: Bool)
     {
         let arc = UIBezierPath()
@@ -21,6 +22,9 @@ class ViewController: UIViewController
         
         
         pathLabel.path = arc
+        
+        
+        imageView.image = UIBezierPath(bezierPathWithHeartAtCenter: imageView.bounds.center, radius: imageView.bounds.width/2).image(strokeColor: UIColor.blackColor(), fillColor: UIColor.redColor().colorWithAlphaComponent(0.5), backgroundColor: nil)
         
 //        let line = UIBezierPath()
 //        line.moveToPoint(CGPointZero)
