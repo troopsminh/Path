@@ -14,11 +14,17 @@ extension UIBezierPath
     public convenience init(path: UIBezierPath)
     {
         self.init(CGPath: path.CGPath)
+        lineWidth = path.lineWidth
+        lineCapStyle = path.lineCapStyle
+        lineJoinStyle = path.lineJoinStyle
+        
     }
     
     /// Returns a copy of this path, using `NSObject.copy()`
     public func copyPath() -> UIBezierPath
     {
-        return copy() as! UIBezierPath
+        guard let path = copy() as? UIBezierPath else { fatalError("\(self).copy() is not a UIBezierPath") }
+        
+        return path
     }
 }
