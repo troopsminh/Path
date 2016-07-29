@@ -3,8 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -26,30 +24,18 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1T-yP-SIr">
-                                <rect key="frame" x="20" y="-8" width="600" height="600"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aHK-B8-1HN">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="aHK-B8-1HN" firstAttribute="leading" secondItem="e1T-yP-SIr" secondAttribute="leading" id="8qW-6F-4ef"/>
-                                    <constraint firstItem="aHK-B8-1HN" firstAttribute="top" secondItem="e1T-yP-SIr" secondAttribute="top" id="BPI-nK-9yA"/>
-                                    <constraint firstAttribute="trailing" secondItem="aHK-B8-1HN" secondAttribute="trailing" id="aga-au-hgM"/>
-                                    <constraint firstAttribute="width" secondItem="e1T-yP-SIr" secondAttribute="height" multiplier="1:1" id="ddq-P3-Sie"/>
-                                    <constraint firstAttribute="bottom" secondItem="aHK-B8-1HN" secondAttribute="bottom" id="jtI-9B-cfF"/>
-                                </constraints>
-                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aHK-B8-1HN">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="e1T-yP-SIr" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="3ba-3I-3ZS"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="e1T-yP-SIr" secondAttribute="bottom" constant="8" symbolic="YES" id="4CE-So-5nD"/>
                             <constraint firstItem="rei-gM-A83" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9fi-3O-ma4"/>
-                            <constraint firstItem="e1T-yP-SIr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ONl-L8-DJm"/>
+                            <constraint firstItem="aHK-B8-1HN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ac7-7w-jaS"/>
+                            <constraint firstAttribute="trailing" secondItem="aHK-B8-1HN" secondAttribute="trailing" id="Pah-iY-iDg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aHK-B8-1HN" secondAttribute="bottom" id="fY2-NK-yxO"/>
                             <constraint firstItem="rei-gM-A83" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jjT-Ih-lzH"/>
+                            <constraint firstItem="aHK-B8-1HN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="pz3-ke-h3r"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DUI-8S-80j">

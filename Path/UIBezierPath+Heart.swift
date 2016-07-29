@@ -24,7 +24,31 @@ private func heartY(t: CGFloat) -> CGFloat
 
 extension UIBezierPath
 {
-    public convenience init(bezierPathWithHeartAtCenter center: CGPoint, radius: CGFloat)
+    public convenience init(heartInRect rect: CGRect)
+    {
+        self.init()
+        
+        let radius = max(10, min(rect.width, rect.height) / 2)
+        
+        let factor = radius / 16
+        
+        func heart(t: CGFloat) -> CGPoint { return CGPoint(x: heartX(t), y: heartY(t)) * factor }
+        
+        moveToPoint(heart(0))
+        
+        let step = min(0.1, 10/radius)
+        
+        for t in step.stride(to: CGFloat.π2, by: step)
+        {
+            addLineToPoint(heart(t))
+        }
+        
+        closePath()
+        
+        transformToFit(rect)
+    }
+    
+    public convenience init(heartCenteredAt center: CGPoint, radius: CGFloat)
     {
         self.init()
         

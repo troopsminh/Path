@@ -8,6 +8,7 @@
 
 import UIKit
 import Path
+import Graphics
 
 class ViewController: UIViewController
 {
@@ -21,9 +22,13 @@ class ViewController: UIViewController
         
         pathLabel.path = arc
         
-        let imagePath = UIBezierPath(bezierPathWithHeartAtCenter: imageView.bounds.center, radius: imageView.bounds.width/2)
+        let lineWidth : CGFloat = 20
         
-        imagePath.lineWidth = 20
+        let imagePath = UIBezierPath(heartInRect: imageView.bounds.insetBy(dx: lineWidth, dy: lineWidth))
+        
+//        let imagePath = UIBezierPath(heartCenteredAt: imageView.bounds.center, radius: imageView.bounds.width/2)
+        
+        imagePath.lineWidth = lineWidth
         
         imageView.image = imagePath.image(strokeColor: UIColor.blackColor(), fillColor: UIColor.redColor().colorWithAlphaComponent(0.5), backgroundColor: nil)
     }
