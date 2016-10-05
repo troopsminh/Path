@@ -6,49 +6,59 @@
 //  Copyright © 2016 Christian Otkjær. All rights reserved.
 //
 
-
 extension UIBezierPath
 {
-    var elements: [PathElement]
-        {
-            var pathElements = [PathElement]()
-            withUnsafeMutablePointer(&pathElements)
-                { elementsPointer in
-                    CGPathApply(CGPath, elementsPointer)
-                        { (userInfo, nextElementPointer) in
-                            let nextElement = PathElement(element: nextElementPointer.memory)
-                            let elementsPointer = UnsafeMutablePointer<[PathElement]>(userInfo)
-                            elementsPointer.memory.append(nextElement)
-                    }
+    private func pathElements() -> [PathElement]
+    {
+        var pathElements = [PathElement]()
+        
+        withUnsafeMutablePointer(to: &pathElements)
+        { elementsPointer in
+            cgPath.apply(info: elementsPointer)
+            { (userInfo, nextElementPointer) in
+                let nextElement = PathElement(element: nextElementPointer.pointee)
+                
+                let elementsPointer = userInfo?.assumingMemoryBound(to: [PathElement].self)
+                
+                elementsPointer?.pointee.append(nextElement)
             }
-            return pathElements
+        }
+        
+        return pathElements
+    }
+    
+    var elements: [PathElement]
+    {
+        return self.pathElements()
     }
 }
-
-//extension UIBezierPath : SequenceType
-//{
-//    public func generate() -> AnyGenerator<PathElement>
-//    {
-//        return anyGenerator(elements.generate())
-//    }
-//}
-
-//extension UIBezierPath : CustomDebugStringConvertible
-//{
-//    public override var debugDescription: String
-//        {
-//            let cgPath = self.CGPath
-//            let bounds = CGPathGetPathBoundingBox(cgPath)
-//            let controlPointBounds = CGPathGetBoundingBox(cgPath)
-//            
-//            return (["\(self.dynamicType)", "bounds: \(bounds)", "control-point bounds: \(controlPointBounds)"] + elements.map({ $0.debugDescription })).joinWithSeparator(",\n     ")
-//    }
-//}
 
 //MARK: - Init Elements
 
 public extension UIBezierPath
 {
+    convenience init<S: Sequence>(elements: S) where S.Iterator.Element == CGPathElement
+    {
+        self.init()
+        
+        for element in elements
+        {
+            switch element.type
+            {
+            case .moveToPoint:
+                self.move(to: element.points[0])
+            case .addLineToPoint:
+                self.addLine(to: element.points[0])
+            case .addQuadCurveToPoint:
+                self.addQuadCurve(to: element.points[0], controlPoint: element.points[1])
+            case .addCurveToPoint:
+                self.addCurve(to: element.points[0], controlPoint1: element.points[1], controlPoint2: element.points[2])
+            case .closeSubpath:
+                self.close()
+            }
+        }
+    }
+    
     convenience init(elements: [PathElement])
     {
         self.init()
@@ -57,20 +67,20 @@ public extension UIBezierPath
         {
             switch element
             {
-            case let .MoveToPoint(point):
-                moveToPoint(point)
+            case let .moveToPoint(point):
+                move(to: point)
                 
-            case .CloseSubpath:
-                closePath()
+            case .closeSubpath:
+                close()
                 
-            case let .AddLineToPoint(point):
-                addLineToPoint(point)
+            case let .addLineToPoint(point):
+                addLine(to: point)
                 
-            case let .AddQuadCurveToPoint(ctrlPoint, endPoint):
-                addQuadCurveToPoint(endPoint, controlPoint: ctrlPoint)
+            case let .addQuadCurveToPoint(ctrlPoint, endPoint):
+                addQuadCurve(to: endPoint, controlPoint: ctrlPoint)
                 
-            case let .AddCurveToPoint(ctrlPoint1, ctrlPoint2, endPoint):
-                addCurveToPoint(endPoint, controlPoint1: ctrlPoint1, controlPoint2: ctrlPoint2)
+            case let .addCurveToPoint(ctrlPoint1, ctrlPoint2, endPoint):
+                addCurve(to: endPoint, controlPoint1: ctrlPoint1, controlPoint2: ctrlPoint2)
             }
         }
     }

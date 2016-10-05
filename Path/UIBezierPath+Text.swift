@@ -12,7 +12,7 @@ public extension UIBezierPath
 {
     convenience init(attributedString: NSAttributedString)
     {
-        self.init(CGPath: CGPathCreateSingleLineStringWithAttributedString(attributedString))
+        self.init(cgPath: CGPathCreateSingleLineStringWithAttributedString(attributedString))
         
         scale(sx: 1, sy: -1)
     }

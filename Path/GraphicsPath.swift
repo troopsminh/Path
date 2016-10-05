@@ -10,7 +10,7 @@ import UIKit
 import Arithmetic
 import Graphics
 
-public class GraphicsPath
+open class GraphicsPath
 {
     var elements = Array<PathElement>()
     
@@ -19,9 +19,9 @@ public class GraphicsPath
         self.elements = elements
     }
     
-    convenience init(cgPath: CGPathRef)
+    convenience init(cgPath: CGPath)
     {
-        self.init(uiBezierPath: UIBezierPath(CGPath: cgPath))
+        self.init(uiBezierPath: UIBezierPath(cgPath: cgPath))
     }
     
     convenience init(uiBezierPath: UIBezierPath)
@@ -49,7 +49,7 @@ public class GraphicsPath
     
     // MARK: - frame
     
-    lazy var frame : CGRect = { return CGPathGetBoundingBox(self.uiBezierPath.CGPath) }()
+    lazy var frame : CGRect = { return self.uiBezierPath.cgPath.boundingBox }()
     
     // MARK: - Cubic Bezier Curves
     
@@ -57,20 +57,20 @@ public class GraphicsPath
     {
         var curves = Array<CubicBezierCurve>()
         
-        var subPathBeginPoint = CGPointZero
-        var beginPoint = CGPointZero
+        var subPathBeginPoint = CGPoint.zero
+        var beginPoint = CGPoint.zero
         
         elements.forEach { (element) -> () in
             
             switch element
             {
-            case .MoveToPoint(let point):
+            case .moveToPoint(let point):
                 
                 subPathBeginPoint = point
                 beginPoint = point
                 
                 
-            case .AddLineToPoint(let endPoint):
+            case .addLineToPoint(let endPoint):
                
                 let ctrlPoint1 = (beginPoint * 2 + endPoint) / 3
                 let ctrlPoint2 = (beginPoint + endPoint * 2) / 3
@@ -80,7 +80,7 @@ public class GraphicsPath
                 beginPoint = endPoint
                 
                 
-            case .AddQuadCurveToPoint(let ctrlPoint, let endPoint):
+            case .addQuadCurveToPoint(let ctrlPoint, let endPoint):
                 
                 // A quadratic Bezier curve can be always represented by a cubic one by applying the degree elevation algorithm. The resulting cubic representation will share its anchor points with the original quadratic, while the control points will be at 2/3 of the quadratic handle segments:
                 let ctrlPoint1 = (ctrlPoint * 2 + beginPoint) / 3
@@ -90,14 +90,14 @@ public class GraphicsPath
                 
                 beginPoint = endPoint
                 
-            case .AddCurveToPoint(let ctrlPoint1, let ctrlPoint2, let endPoint):
+            case .addCurveToPoint(let ctrlPoint1, let ctrlPoint2, let endPoint):
                 
                 curves.append(CubicBezierCurve(p0: beginPoint, p1: ctrlPoint1, p2: ctrlPoint2, p3: endPoint))
                 
                 beginPoint = endPoint
                 
                 
-            case .CloseSubpath:
+            case .closeSubpath:
                 
                 let endPoint = subPathBeginPoint
                 
@@ -106,8 +106,8 @@ public class GraphicsPath
                 
                 curves.append(CubicBezierCurve(p0: beginPoint, p1: ctrlPoint1, p2: ctrlPoint2, p3: endPoint))
                 
-                beginPoint = CGPointZero
-                subPathBeginPoint = CGPointZero
+                beginPoint = CGPoint.zero
+                subPathBeginPoint = CGPoint.zero
                 
             }
         }
@@ -123,9 +123,9 @@ extension GraphicsPath : CustomDebugStringConvertible
     public var debugDescription : String
         {
         
-        let elementsDescriptions = elements.enumerate().map({ "\($0) : \($1.debugDescription)" })
+        let elementsDescriptions = elements.enumerated().map({ "\($0) : \($1.debugDescription)" })
         
-        return "\npath\n" + elementsDescriptions.joinWithSeparator("\n")
+        return "\npath\n" + elementsDescriptions.joined(separator: "\n")
     }
 }
 
@@ -133,44 +133,44 @@ extension GraphicsPath : CustomDebugStringConvertible
 
 extension GraphicsPath
 {
-    func stroke(withColor color: UIColor = UIColor.blackColor(), lineWidth: CGFloat = 1, inContext: CGContextRef? = nil)
+    func stroke(withColor color: UIColor = UIColor.black, lineWidth: CGFloat = 1, inContext: CGContext? = nil)
     {
         guard let context = inContext ?? UIGraphicsGetCurrentContext() else { return }
         
-        CGContextSaveGState(context)
+        context.saveGState()
         
         // Flip the context coordinates in iOS only.
-        CGContextTranslateCTM(context, 0, frame.size.height)
-        CGContextScaleCTM(context, 1, -1)
+        context.translateBy(x: 0, y: frame.size.height)
+        context.scaleBy(x: 1, y: -1)
         
-        CGContextTranslateCTM(context, -lineWidth, -lineWidth)
+        context.translateBy(x: -lineWidth, y: -lineWidth)
         
-        CGContextAddPath(context, uiBezierPath.CGPath)
+        context.addPath(uiBezierPath.cgPath)
         
-        CGContextSetStrokeColorWithColor(context, color.CGColor)
-        CGContextSetLineWidth(context, lineWidth)
+        context.setStrokeColor(color.cgColor)
+        context.setLineWidth(lineWidth)
         
-        CGContextStrokePath(context)
+        context.strokePath()
         
-        CGContextRestoreGState(context)
+        context.restoreGState()
     }
     
-    func fill(withColor color: UIColor = UIColor.blackColor(), inContext: CGContextRef? = nil)
+    func fill(withColor color: UIColor = UIColor.black, inContext: CGContext? = nil)
     {
         guard let context = inContext ?? UIGraphicsGetCurrentContext() else { return }
         
-        CGContextSaveGState(context)
+        context.saveGState()
         
         // Flip the context coordinates in iOS only.
-        CGContextTranslateCTM(context, 0, frame.size.height)
-        CGContextScaleCTM(context, 1, -1)
+        context.translateBy(x: 0, y: frame.size.height)
+        context.scaleBy(x: 1, y: -1)
         
-        CGContextAddPath(context, uiBezierPath.CGPath)
+        context.addPath(uiBezierPath.cgPath)
         
-        CGContextSetFillColorWithColor(context, color.CGColor)
+        context.setFillColor(color.cgColor)
         
-        CGContextFillPath(context)
+        context.fillPath()
         
-        CGContextRestoreGState(context)
+        context.restoreGState()
     }
 }

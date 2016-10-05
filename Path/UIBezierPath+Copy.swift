@@ -13,7 +13,7 @@ extension UIBezierPath
     /// Initializ as a copy of `path`
     public convenience init(path: UIBezierPath)
     {
-        self.init(CGPath: path.CGPath)
+        self.init(cgPath: path.cgPath)
         lineWidth = path.lineWidth
         lineCapStyle = path.lineCapStyle
         lineJoinStyle = path.lineJoinStyle

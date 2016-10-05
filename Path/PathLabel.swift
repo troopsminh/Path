@@ -8,11 +8,11 @@
 
 import UIKit
 
-public class PathLabel: UILabel
+open class PathLabel: UILabel
 {
     // MARK: - Path
     
-    public var path: UIBezierPath?
+    open var path: UIBezierPath?
         {
         didSet
         {
@@ -36,7 +36,7 @@ public class PathLabel: UILabel
         setup()
     }
     
-    override public func awakeFromNib()
+    override open func awakeFromNib()
     {
         super.awakeFromNib()
         setup()
@@ -49,28 +49,28 @@ public class PathLabel: UILabel
 
     // MARK: - Size
     
-    override public func sizeThatFits(size: CGSize) -> CGSize
+    override open func sizeThatFits(_ size: CGSize) -> CGSize
     {
         return textPath.bounds.size
     }
 
     // MARK: - Interface Builder
     
-    public override func prepareForInterfaceBuilder()
+    open override func prepareForInterfaceBuilder()
     {
         super.prepareForInterfaceBuilder()
         
         setup()
     }
     
-    public override func intrinsicContentSize() -> CGSize
+    open override var intrinsicContentSize : CGSize
     {
         return displayPath.approximateBoundsForFont(font).size
     }
     
     // MARK: - Display Path
     
-    private var displayPath : UIBezierPath
+    fileprivate var displayPath : UIBezierPath
         {
             if let path = self.path
             {
@@ -79,13 +79,13 @@ public class PathLabel: UILabel
             
             let path = UIBezierPath()
             
-            path.moveToPoint(bounds.centerLeft)
-            path.addLineToPoint(bounds.centerRight)
+            path.move(to: bounds.centerLeft)
+            path.addLine(to: bounds.centerRight)
             
             return path
     }
     
-    private var textPath = UIBezierPath()
+    fileprivate var textPath = UIBezierPath()
     
     func updateTextPath()
     {
@@ -101,7 +101,7 @@ public class PathLabel: UILabel
 //    
 //    private let imageView = UIImageView()
 //    
-    override public func drawRect(rect: CGRect)
+    override open func draw(_ rect: CGRect)
     {
         //TODO: Alpha checks on colors
 
@@ -114,15 +114,15 @@ public class PathLabel: UILabel
     
         textColor.setFill()
 
-        textPath.alignIn(bounds)
+        textPath.align(in: bounds)
         
         textPath.fill()
       
         
         if let renderPath = path
         {
-            UIColor.grayColor().setStroke()
-            renderPath.alignIn(bounds)
+            UIColor.gray.setStroke()
+            renderPath.align(in: bounds)
             renderPath.stroke()
         }
         

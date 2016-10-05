@@ -8,15 +8,15 @@
 
 public enum LineJoin
 {
-    case Miter(CGFloat), Round, Bevel
+    case miter(CGFloat), round, bevel
     
     var caLineJoin : String
         {
             switch self
             {
-            case .Miter(_): return kCALineJoinMiter
-            case .Round: return kCALineJoinRound
-            case .Bevel: return kCALineJoinBevel
+            case .miter(_): return kCALineJoinMiter
+            case .round: return kCALineJoinRound
+            case .bevel: return kCALineJoinBevel
             }
     }
 }

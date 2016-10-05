@@ -16,9 +16,9 @@ extension UIBezierPath
      */
     public var strokeBounds : CGRect
         {
-            if let strokePath = CGPathCreateCopyByStrokingPath(self.CGPath, nil, lineWidth, lineCapStyle, lineJoinStyle, miterLimit)
+            if let strokePath = CGPath(__byStroking: self.cgPath, transform: nil, lineWidth: lineWidth, lineCap: lineCapStyle, lineJoin: lineJoinStyle, miterLimit: miterLimit)
             {
-                return UIBezierPath(CGPath: strokePath).bounds
+                return UIBezierPath(cgPath: strokePath).bounds
             }
             
             return bounds

@@ -19,7 +19,7 @@ public extension UIBezierPath
     
     - parameter phase: The offset at which to start drawing the pattern, measured in points along the dashed-line pattern. For example, a phase value of 6 for the pattern 5-2-3-2 would cause drawing to begin in the middle of the first gap.
      */
-    func setLineDash(pattern: Array<CGFloat> = [], phase: CGFloat = 0)
+    func setLineDash(_ pattern: Array<CGFloat> = [], phase: CGFloat = 0)
     {
         var p = pattern.count > 0 ? pattern : [lineWidth, lineWidth]
         

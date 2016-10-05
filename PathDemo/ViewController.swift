@@ -15,10 +15,10 @@ class ViewController: UIViewController
     @IBOutlet var pathLabel: PathLabel!
     
     @IBOutlet weak var imageView: UIImageView!
-    override func viewWillAppear(animated: Bool)
+    override func viewWillAppear(_ animated: Bool)
     {
         let arc = UIBezierPath()
-        arc.addArcWithCenter(CGPoint(100,100), radius: 100, startAngle: CGFloat.π_8, endAngle: CGFloat.π2, clockwise: true)
+        arc.addArc(withCenter: CGPoint(100,100), radius: 100, startAngle: CGFloat.π_8, endAngle: CGFloat.π2, clockwise: true)
         
         pathLabel.path = arc
         
@@ -30,7 +30,7 @@ class ViewController: UIViewController
         
         imagePath.lineWidth = lineWidth
         
-        imageView.image = imagePath.image(strokeColor: UIColor.blackColor(), fillColor: UIColor.redColor().colorWithAlphaComponent(0.5), backgroundColor: nil)
+        imageView.image = imagePath.image(strokeColor: UIColor.black, fillColor: UIColor.red.withAlphaComponent(0.5), backgroundColor: nil)
     }
 }
 

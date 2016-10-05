@@ -7,11 +7,31 @@
 //
 
 import Graphics
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 public extension UIBezierPath
 {
     func image(
-        strokeColor strokeColor: UIColor? = UIColor.blackColor(),
+        strokeColor: UIColor? = UIColor.black,
         fillColor: UIColor? = nil,
         backgroundColor: UIColor? = nil) -> UIImage
     {
@@ -19,30 +39,32 @@ public extension UIBezierPath
         
         let path = translated(tx: -frame.minX, ty: -frame.size.height - frame.minY).flippedVertically()
 
-        let opaque = backgroundColor?.CGColor.alpha == 1
+        let opaque = backgroundColor?.cgColor.alpha == 1
         
         UIGraphicsBeginImageContextWithOptions(frame.size, opaque, 0)
         defer { UIGraphicsEndImageContext() }
         
-        if backgroundColor?.CGColor.alpha > 0
+        if backgroundColor?.cgColor.alpha > 0
         {
             backgroundColor?.setFill()
             
-            UIBezierPath(rect: CGRect(size: frame.size)).fill()
+            UIBezierPath(rect: frame).fill()
+            
+//            UIBezierPath(rect: CGRect(dictionaryRepresentation: frame.size as! CFDictionary)!).fill()
         }
         
-        if fillColor?.CGColor.alpha > 0
+        if fillColor?.cgColor.alpha > 0
         {
             fillColor?.setFill()
             path.fill()
         }
         
-        if strokeColor?.CGColor.alpha > 0 && lineWidth > 0
+        if strokeColor?.cgColor.alpha > 0 && lineWidth > 0
         {
             strokeColor?.setStroke()
             path.stroke()
         }
         
-        return UIGraphicsGetImageFromCurrentImageContext()
+        return UIGraphicsGetImageFromCurrentImageContext()!
     }
 }

@@ -13,7 +13,7 @@
 		8F4B32C41C8DAA0900275253 /* Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0C9F1C8701CE00C2104D /* Collections.framework */; };
 		8F4B32C51C8DAA0900275253 /* Graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0CA11C8701CE00C2104D /* Graphics.framework */; };
 		8F4B32C71C8DAEC700275253 /* UIBezierPath+Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B32C61C8DAEC700275253 /* UIBezierPath+Fit.swift */; };
-		8F4B32C91C8DB8AC00275253 /* UIBezierPath+Transfom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B32C81C8DB8AC00275253 /* UIBezierPath+Transfom.swift */; };
+		8F4B32C91C8DB8AC00275253 /* UIBezierPath+Flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B32C81C8DB8AC00275253 /* UIBezierPath+Flip.swift */; };
 		8F4B32CB1C8ECDCB00275253 /* UIBezierPath+Bounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B32CA1C8ECDCB00275253 /* UIBezierPath+Bounds.swift */; };
 		8F55D7941D49152600E58FBB /* UIBezierPath+Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F55D7931D49152600E58FBB /* UIBezierPath+Copy.swift */; };
 		8F55D7981D49484200E58FBB /* UIBezierPath+Heart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F55D7971D49484200E58FBB /* UIBezierPath+Heart.swift */; };
@@ -59,6 +59,10 @@
 		8FCAE9331C87183100D69136 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCAE9321C87183100D69136 /* Star.swift */; };
 		8FCAE9351C87184B00D69136 /* Drop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCAE9341C87184B00D69136 /* Drop.swift */; };
 		8FCAE9371C8718D000D69136 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCAE9361C8718D000D69136 /* Vector.swift */; };
+		8FEA6B471DA4F7A2002460BB /* UIBezierPath+Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA6B461DA4F7A2002460BB /* UIBezierPath+Translate.swift */; };
+		8FEA6B491DA4F895002460BB /* UIBezierPath+Rotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA6B481DA4F895002460BB /* UIBezierPath+Rotate.swift */; };
+		8FEA6B4B1DA4F90D002460BB /* UIBezierPath+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA6B4A1DA4F90D002460BB /* UIBezierPath+Scale.swift */; };
+		8FEA6B4F1DA507BA002460BB /* UIBezierPath+Warp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA6B4E1DA507BA002460BB /* UIBezierPath+Warp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,7 +103,7 @@
 		8F4B32BF1C8DA11E00275253 /* UIBezierPath+Dash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Dash.swift"; sourceTree = "<group>"; };
 		8F4B32C11C8DA7BB00275253 /* UIBezierPath+Equality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Equality.swift"; sourceTree = "<group>"; };
 		8F4B32C61C8DAEC700275253 /* UIBezierPath+Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Fit.swift"; sourceTree = "<group>"; };
-		8F4B32C81C8DB8AC00275253 /* UIBezierPath+Transfom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Transfom.swift"; sourceTree = "<group>"; };
+		8F4B32C81C8DB8AC00275253 /* UIBezierPath+Flip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Flip.swift"; sourceTree = "<group>"; };
 		8F4B32CA1C8ECDCB00275253 /* UIBezierPath+Bounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Bounds.swift"; sourceTree = "<group>"; };
 		8F55D7931D49152600E58FBB /* UIBezierPath+Copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Copy.swift"; sourceTree = "<group>"; };
 		8F55D7971D49484200E58FBB /* UIBezierPath+Heart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Heart.swift"; sourceTree = "<group>"; };
@@ -142,6 +146,10 @@
 		8FCAE9321C87183100D69136 /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		8FCAE9341C87184B00D69136 /* Drop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drop.swift; sourceTree = "<group>"; };
 		8FCAE9361C8718D000D69136 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
+		8FEA6B461DA4F7A2002460BB /* UIBezierPath+Translate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Translate.swift"; sourceTree = "<group>"; };
+		8FEA6B481DA4F895002460BB /* UIBezierPath+Rotate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Rotate.swift"; sourceTree = "<group>"; };
+		8FEA6B4A1DA4F90D002460BB /* UIBezierPath+Scale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Scale.swift"; sourceTree = "<group>"; };
+		8FEA6B4E1DA507BA002460BB /* UIBezierPath+Warp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Warp.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,8 +216,12 @@
 			isa = PBXGroup;
 			children = (
 				8F7E0C8D1C85E27C00C2104D /* PathElement.swift */,
-				8F4B32C81C8DB8AC00275253 /* UIBezierPath+Transfom.swift */,
 				8F7E0C931C86FCF800C2104D /* UIBezierPath+Elements.swift */,
+				8FEA6B4E1DA507BA002460BB /* UIBezierPath+Warp.swift */,
+				8F4B32C81C8DB8AC00275253 /* UIBezierPath+Flip.swift */,
+				8FEA6B4A1DA4F90D002460BB /* UIBezierPath+Scale.swift */,
+				8FEA6B481DA4F895002460BB /* UIBezierPath+Rotate.swift */,
+				8FEA6B461DA4F7A2002460BB /* UIBezierPath+Translate.swift */,
 				8F7E0C951C86FE3400C2104D /* UIBezierPath+Text.swift */,
 				8F7E0CA61C87095900C2104D /* UIBezierPath+Image.swift */,
 				8F4B32BF1C8DA11E00275253 /* UIBezierPath+Dash.swift */,
@@ -356,17 +368,20 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Christian Otkjær";
 				TargetAttributes = {
 					8F7E0C711C85E00D00C2104D = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 					};
 					8F7E0C7B1C85E00D00C2104D = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 					};
 					8FA50D0D1CABC7CE005D28B6 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -428,18 +443,22 @@
 				8F4B32C71C8DAEC700275253 /* UIBezierPath+Fit.swift in Sources */,
 				8FCAE9311C87171900D69136 /* SuperEllipse.swift in Sources */,
 				8F7711FE1C897F8300B6B218 /* LineCap.swift in Sources */,
-				8F4B32C91C8DB8AC00275253 /* UIBezierPath+Transfom.swift in Sources */,
+				8F4B32C91C8DB8AC00275253 /* UIBezierPath+Flip.swift in Sources */,
 				8F55D7981D49484200E58FBB /* UIBezierPath+Heart.swift in Sources */,
 				8F7E0C8E1C85E27C00C2104D /* PathElement.swift in Sources */,
 				8F7E0CAB1C870B5200C2104D /* Cresent.swift in Sources */,
 				8F55D7941D49152600E58FBB /* UIBezierPath+Copy.swift in Sources */,
 				8F77117D1C8730F200B6B218 /* Bars.swift in Sources */,
 				8F97AD471CEEE67C002DF85C /* UIBezierPath+Align.swift in Sources */,
+				8FEA6B471DA4F7A2002460BB /* UIBezierPath+Translate.swift in Sources */,
 				8F97AD491CEEEE79002DF85C /* Alignment.swift in Sources */,
+				8FEA6B491DA4F895002460BB /* UIBezierPath+Rotate.swift in Sources */,
 				8F7E0C901C85FBC600C2104D /* GraphicsPath.swift in Sources */,
 				8F4B32C21C8DA7BB00275253 /* UIBezierPath+Equality.swift in Sources */,
 				8FA50D091CABC2BF005D28B6 /* PathLabel.swift in Sources */,
+				8FEA6B4B1DA4F90D002460BB /* UIBezierPath+Scale.swift in Sources */,
 				8FCAE9331C87183100D69136 /* Star.swift in Sources */,
+				8FEA6B4F1DA507BA002460BB /* UIBezierPath+Warp.swift in Sources */,
 				8F7E0C9A1C86FE9D00C2104D /* CubicBezierCurve.swift in Sources */,
 				8FCAE9371C8718D000D69136 /* Vector.swift in Sources */,
 				8F4B32CB1C8ECDCB00275253 /* UIBezierPath+Bounds.swift in Sources */,
@@ -520,8 +539,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -568,8 +589,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -589,6 +612,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -600,6 +624,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -615,6 +640,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -622,6 +648,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -636,6 +663,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverback-it.Path";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -650,6 +678,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverback-it.PathTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -664,14 +693,15 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverback-it.PathTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		8FA50D1E1CABC7CE005D28B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -680,14 +710,15 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverback-it.PathDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		8FA50D1F1CABC7CE005D28B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -696,6 +727,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverback-it.PathDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -40,14 +40,14 @@ public extension UIBezierPath
         }
         
         self.init()
-        moveToPoint(rect.centerLeft)
+        move(to: rect.centerLeft)
         
         let factor = max((a+b)/10, 32)
         
-        for t in (-π).stride(to: π, by: π/factor)
+        for t in stride(from: (-π), to: π, by: π/factor)
         {
-            addLineToPoint(CGPoint(x: x(t), y: y(t)))
+            addLine(to: CGPoint(x: x(t), y: y(t)))
         }
-        closePath()
+        close()
     }
 }

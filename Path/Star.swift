@@ -24,27 +24,27 @@ extension UIBezierPath
         
         var radius = (outerRadius, innerRadius)
         
-        moveToPoint(CGPoint(x: radius.0, y: 0))
+        move(to: CGPoint(x: radius.0, y: 0))
         
         for _ in 0..<spikes*2
         {
-            applyTransform(CGAffineTransformMakeRotation(angle))
+            apply(CGAffineTransform(rotationAngle: angle))
             
             swap(&radius.0, &radius.1)
             
-            addLineToPoint(CGPoint(x: radius.0, y: 0))
+            addLine(to: CGPoint(x: radius.0, y: 0))
         }
         
-        applyTransform(CGAffineTransformMakeTranslation(center.x, center.y))
+        apply(CGAffineTransform(translationX: center.x, y: center.y))
         
-        closePath()
+        close()
     }
     
-    public func addStar(center: CGPoint,
+    public func addStar(_ center: CGPoint,
         innerRadius: CGFloat,
         outerRadius: CGFloat,
         spikes: Int)
     {
-        appendPath(UIBezierPath(starWithCenter: center, innerRadius: innerRadius, outerRadius: outerRadius, spikes: spikes))
+        append(UIBezierPath(starWithCenter: center, innerRadius: innerRadius, outerRadius: outerRadius, spikes: spikes))
     }
 }

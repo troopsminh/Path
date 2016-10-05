@@ -21,7 +21,7 @@ public extension UIBezierPath
      */
     public convenience init(
         convexRegularPolygonWithNumberOfSides n: Int,
-        center: CGPoint = CGPointZero,
+        center: CGPoint = CGPoint.zero,
         circumscribedCircleRadius radius: CGFloat,
         turned: Bool = false)
     {
@@ -29,26 +29,26 @@ public extension UIBezierPath
         
         self.init()
         
-        moveToPoint(CGPoint(x: radius, y: 0))
+        move(to: CGPoint(x: radius, y: 0))
         
         for theta in (1 ..< n).map({ $0 * 2 * π / n } )
         {
-            addLineToPoint(CGPoint(x: radius * cos(theta), y: radius * sin(theta)))
+            addLine(to: CGPoint(x: radius * cos(theta), y: radius * sin(theta)))
         }
         
-        closePath()
+        close()
         
         if turned
         {
-            applyTransform(CGAffineTransformMakeRotation(π_2 - π / n))
+            apply(CGAffineTransform(rotationAngle: π_2 - π / n))
 
 //            applyTransform(CGAffineTransformMakeRotation(π / CGFloat(n)))
         }
         
-        applyTransform(CGAffineTransformMakeTranslation(center.x, center.y))
+        apply(CGAffineTransform(translationX: center.x, y: center.y))
     }
     
-    public convenience init(pentagonWithCenter center: CGPoint = CGPointZero, sideLength: CGFloat, turned: Bool = false)
+    public convenience init(pentagonWithCenter center: CGPoint = CGPoint.zero, sideLength: CGFloat, turned: Bool = false)
     {
         self.init(convexRegularPolygonWithNumberOfSides: 5, center: center, circumscribedCircleRadius: sideLength, turned: turned)
     }

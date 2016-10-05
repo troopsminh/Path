@@ -20,7 +20,8 @@ import Arithmetic
 
 public extension UIBezierPath
 {
-    func scaleToFit(size: CGSize)
+    /// scales path to fit in `size`
+    func scale(toFit size: CGSize)
     {
         let pathBounds = bounds
         
@@ -29,12 +30,11 @@ public extension UIBezierPath
         scale(sx: scaleFactor, sy: scaleFactor)
     }
     
-   
-    
-    func transformToFit(rect: CGRect, alignment: CGPoint = CGPoint(0.5, 0.5))
+    /// transforms path to fit in `rect`
+    func transform(toFit rect: CGRect, alignment: CGPoint = CGPoint(0.5, 0.5))
     {
-        scaleToFit(rect.size)
+        scale(toFit: rect.size)
 
-        alignIn(rect, alignment: alignment)
+        align(in: rect, alignment: alignment)
     }
 }

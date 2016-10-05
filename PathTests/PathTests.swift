@@ -15,22 +15,22 @@ class PathTests: XCTestCase
     
     override func setUp()
     {
-        path.moveToPoint(CGPoint(x: 10, y: 10))
-        path.addLineToPoint(CGPoint(x: 20, y: 20))
-        path.addQuadCurveToPoint(CGPoint(x: 100, y: 10), controlPoint: CGPoint(x: 50, y: 100))
-        path.addCurveToPoint(CGPoint(x: 50, y: 0), controlPoint1: CGPoint(x: 75, y: 100), controlPoint2: CGPoint(x: 10, y: -100))
-        path.closePath()
+        path.move(to: CGPoint(x: 10, y: 10))
+        path.addLine(to: CGPoint(x: 20, y: 20))
+        path.addQuadCurve(to: CGPoint(x: 100, y: 10), controlPoint: CGPoint(x: 50, y: 100))
+        path.addCurve(to: CGPoint(x: 50, y: 0), controlPoint1: CGPoint(x: 75, y: 100), controlPoint2: CGPoint(x: 10, y: -100))
+        path.close()
     }
     
     func test_elements()
     {
-        let oval = UIBezierPath(ovalInRect: CGRect(origin: CGPointZero, size: CGSize(width: 100, height: 100)))
+        let oval = UIBezierPath(ovalIn: CGRect(origin: CGPoint.zero, size: CGSize(width: 100, height: 100)))
         
         XCTAssertGreaterThan(oval.elements.count, 2)
         
         XCTAssertEqual(path.elements.count, 5)
         
-        XCTAssertEqual(path.elements[1], PathElement.AddLineToPoint(CGPoint(x: 20, y: 20)))
+        XCTAssertEqual(path.elements[1], PathElement.addLineToPoint(CGPoint(x: 20, y: 20)))
     }
     
     func test_init_elements()
@@ -39,26 +39,25 @@ class PathTests: XCTestCase
         
         XCTAssertEqual(UIBezierPath(elements: path.elements).elements.count, 5)
 
-        XCTAssertEqual(UIBezierPath(elements: [PathElement.MoveToPoint(CGPointZero)]).elements.count, 1)
+        XCTAssertEqual(UIBezierPath(elements: [PathElement.moveToPoint(CGPoint.zero)]).elements.count, 1)
     }
 
     func test_image()
     {
         path.lineWidth = 25
         path.setLineDash([2,2])
-        path.lineJoinStyle = .Round
+        path.lineJoinStyle = .round
         
-        var image = path.image(strokeColor: UIColor.redColor(), fillColor: UIColor.whiteColor(), backgroundColor: nil)
+        var image = path.image(strokeColor: UIColor.red, fillColor: UIColor.white, backgroundColor: nil)
         
         XCTAssertNotNil(image)
         
-        let circle = UIBezierPath(ovalInRect: CGRect(size: CGSize(500)))
+        let circle = UIBezierPath(ovalIn: CGRect(size: CGSize(500)))
         circle.lineWidth = 25
         
-        image = circle.image(strokeColor: UIColor.redColor(), fillColor: UIColor.yellowColor(), backgroundColor: UIColor.whiteColor())
+        image = circle.image(strokeColor: UIColor.red, fillColor: UIColor.yellow, backgroundColor: UIColor.white)
         
         XCTAssertNotNil(image)
-        
     }
     
     func test_stroke_bounds()
@@ -80,10 +79,10 @@ class PathTests: XCTestCase
         XCTAssertEqual(strokeBounds.maxX, 110)
     }
     
-    func test_scaleToFit()
+    func test_scale_toFit()
     {
         path.lineWidth = 10
-        path.scaleToFit(CGSize(1000))
+        path.scale(toFit: CGSize(1000))
         
         XCTAssertLessThanOrEqual(path.bounds.width, 1000)
         XCTAssertLessThanOrEqual(path.bounds.height, 1000)
@@ -93,9 +92,9 @@ class PathTests: XCTestCase
     {
         let rect = CGRect(x: 100, y: 10, width: 50, height: 400)
         
-        path.transformToFit(rect)
+        path.transform(toFit: rect)
         
-        path.appendPath(UIBezierPath(rect: rect))
+        path.append(UIBezierPath(rect: rect))
         
         XCTAssertLessThanOrEqual(path.bounds.width, 50)
         XCTAssertLessThanOrEqual(path.bounds.height, 400)
@@ -105,9 +104,9 @@ class PathTests: XCTestCase
     {
         let rect = CGRect(x: 100, y: 10, width: 50, height: 400)
         
-        path.transformToFit(rect, alignment: CGPoint(0.5, 1))
+        path.transform(toFit: rect, alignment: CGPoint(0.5, 1))
         
-        path.appendPath(UIBezierPath(rect: rect))
+        path.append(UIBezierPath(rect: rect))
         
         XCTAssertLessThanOrEqual(path.bounds.width, 50)
         XCTAssertLessThanOrEqual(path.bounds.height, 400)
@@ -118,7 +117,7 @@ class PathTests: XCTestCase
         let rect = CGRect(x: 100, y: 10, width: 50, height: 400)
         
         let radius : CGFloat = 20
-        let circle = UIBezierPath(arcCenter: CGPointZero, radius: radius, startAngle: 0, endAngle: CGFloat(M_PI * 2), clockwise: true)
+        let circle = UIBezierPath(arcCenter: CGPoint.zero, radius: radius, startAngle: 0, endAngle: CGFloat(M_PI * 2), clockwise: true)
         
         circle.alignIn(rect)
         
@@ -126,42 +125,42 @@ class PathTests: XCTestCase
         XCTAssertEqual(circle.bounds.height, 40)
         XCTAssertEqual(circle.bounds.center, rect.center)//CGPoint(125, 210))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.Bottom)
+        circle.alignIn(rect, contentMode: UIViewContentMode.bottom)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.midX, rect.maxY - radius))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.BottomRight)
+        circle.alignIn(rect, contentMode: UIViewContentMode.bottomRight)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.maxX - radius, rect.maxY - radius))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.BottomLeft)
+        circle.alignIn(rect, contentMode: UIViewContentMode.bottomLeft)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.minX + radius, rect.maxY - radius))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.Top)
+        circle.alignIn(rect, contentMode: UIViewContentMode.top)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.midX, rect.minY + radius))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.TopRight)
+        circle.alignIn(rect, contentMode: UIViewContentMode.topRight)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.maxX - radius, rect.minY + radius))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.TopLeft)
+        circle.alignIn(rect, contentMode: UIViewContentMode.topLeft)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.minX + radius, rect.minY + radius))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.Right)
+        circle.alignIn(rect, contentMode: UIViewContentMode.right)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.maxX - radius, rect.midY))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.Left)
+        circle.alignIn(rect, contentMode: UIViewContentMode.left)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.minX + radius, rect.midY))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.Center)
+        circle.alignIn(rect, contentMode: UIViewContentMode.center)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.midX, rect.midY))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.ScaleAspectFit)
+        circle.alignIn(rect, contentMode: UIViewContentMode.scaleAspectFit)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.midX, rect.midY))
         XCTAssertEqual(circle.bounds.size, CGSize(50, 50))
 
-        circle.alignIn(rect, contentMode: UIViewContentMode.ScaleAspectFill)
+        circle.alignIn(rect, contentMode: UIViewContentMode.scaleAspectFill)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.midX, rect.midY))
         XCTAssertEqual(circle.bounds.size, CGSize(400, 400))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.ScaleToFill)
+        circle.alignIn(rect, contentMode: UIViewContentMode.scaleToFill)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.midX, rect.midY))
         XCTAssertEqual(circle.bounds.size, CGSize(50, 400))
     }
@@ -178,19 +177,19 @@ class PathTests: XCTestCase
         
         let point = CGPoint(3,4)
         
-        p1.moveToPoint(point)
+        p1.move(to: point)
         XCTAssert(p1 != p2)
         
-        p2.moveToPoint(point)
+        p2.move(to: point)
         XCTAssert(p1 == p2)
         
         let p3 = UIBezierPath()
         
-        p3.moveToPoint(CGPoint(x: 10, y: 10))
-        p3.addLineToPoint(CGPoint(x: 20, y: 20))
-        p3.addQuadCurveToPoint(CGPoint(x: 100, y: 10), controlPoint: CGPoint(x: 50, y: 100))
-        p3.addCurveToPoint(CGPoint(x: 50, y: 0), controlPoint1: CGPoint(x: 75, y: 100), controlPoint2: CGPoint(x: 10, y: -100))
-        p3.closePath()
+        p3.move(to: CGPoint(x: 10, y: 10))
+        p3.addLine(to: CGPoint(x: 20, y: 20))
+        p3.addQuadCurve(to: CGPoint(x: 100, y: 10), controlPoint: CGPoint(x: 50, y: 100))
+        p3.addCurve(to: CGPoint(x: 50, y: 0), controlPoint1: CGPoint(x: 75, y: 100), controlPoint2: CGPoint(x: 10, y: -100))
+        p3.close()
         
         XCTAssertEqual(p3, path)
         

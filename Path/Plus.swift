@@ -14,18 +14,18 @@ extension UIBezierPath
     {
         self.init()
         
-        let bounds = CGRect(center: rect.center, size: CGSize(rect.minWidthHeight))
+        let bounds = CGRect(origin: rect.center, size: CGSize(rect.minWidthHeight))
         
-        moveToPoint(bounds.topCenter)
-        addLineToPoint(bounds.bottomCenter)
+        move(to: bounds.topCenter)
+        addLine(to: bounds.bottomCenter)
         
-        moveToPoint(bounds.centerLeft)
-        addLineToPoint(bounds.centerRight)
+        move(to: bounds.centerLeft)
+        addLine(to: bounds.centerRight)
         
     }
     
-    public convenience init(plusWithCenter center: CGPoint = CGPointZero, radius: CGFloat)
+    public convenience init(plusWithCenter center: CGPoint = CGPoint.zero, radius: CGFloat)
     {
-        self.init(plusInRect: CGRect(center: center, size: CGSize(radius * 2)))
+        self.init(plusInRect: CGRect(origin: center, size: CGSize(radius * 2)))
     }
 }

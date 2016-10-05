@@ -26,12 +26,12 @@ extension UIBezierPath
             
             let barPath = UIBezierPath()
             
-            barPath.moveToPoint(rect.centerLeft)
-            barPath.addLineToPoint(rect.centerRight)
+            barPath.move(to: rect.centerLeft)
+            barPath.addLine(to: rect.centerRight)
             
-            barPath.lineCapStyle = .Round
+            barPath.lineCapStyle = .round
             
-            appendPath(barPath)
+            append(barPath)
             
         default:
             
@@ -42,10 +42,10 @@ extension UIBezierPath
                 let barPath = UIBezierPath()
                 let factor = bar / spaces
                 
-                barPath.moveToPoint((rect.topLeft, rect.bottomLeft) ◊ factor)
-                barPath.addLineToPoint((rect.topRight, rect.bottomRight) ◊ factor)
+                barPath.move(to: (rect.topLeft, rect.bottomLeft) ◊ factor)
+                barPath.addLine(to: (rect.topRight, rect.bottomRight) ◊ factor)
                 
-                appendPath(barPath)
+                append(barPath)
             }
         }
     }

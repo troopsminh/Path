@@ -11,11 +11,11 @@ import Graphics
 
 public extension UIBezierPath
 {
-    convenience init(vector: CGVector, atPoint point: CGPoint = CGPointZero)
+    convenience init(vector: CGVector, atPoint point: CGPoint = CGPoint.zero)
     {
         self.init()
         
-        guard vector.magnitude > 0.01 else { moveToPoint(point); addLineToPoint(point); return }
+        guard vector.magnitude > 0.01 else { move(to: point); addLine(to: point); return }
         
         let toPoint = point + vector
         let tailWidth = max(1, vector.magnitude / 30)
@@ -25,15 +25,15 @@ public extension UIBezierPath
         
         let v = vector.perpendicular().normalized
         
-        moveToPoint(toPoint)
-        addLineToPoint(headStartPoint + v * headWidth)
-        addLineToPoint(headStartPoint + v * tailWidth)
-        addLineToPoint(point + v * tailWidth)
+        move(to: toPoint)
+        addLine(to: headStartPoint + v * headWidth)
+        addLine(to: headStartPoint + v * tailWidth)
+        addLine(to: point + v * tailWidth)
         
-        addLineToPoint(point - v * tailWidth)
-        addLineToPoint(headStartPoint - v * tailWidth)
-        addLineToPoint(headStartPoint - v * headWidth)
+        addLine(to: point - v * tailWidth)
+        addLine(to: headStartPoint - v * tailWidth)
+        addLine(to: headStartPoint - v * headWidth)
         
-        closePath()
+        close()
     }
 }

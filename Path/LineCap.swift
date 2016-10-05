@@ -8,15 +8,15 @@
 
 public enum LineCap
 {
-    case Butt, Round, Square
+    case butt, round, square
     
     var caLineCap : String
         { 
             switch self
             {
-            case .Butt: return kCALineCapButt
-            case .Round: return kCALineCapRound
-            case .Square: return kCALineCapSquare
+            case .butt: return kCALineCapButt
+            case .round: return kCALineCapRound
+            case .square: return kCALineCapSquare
             }
     }
 }

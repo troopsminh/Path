@@ -12,7 +12,7 @@ import Arithmetic
 
 extension UIBezierPath
 {
-    public func alignIn(rect: CGRect, alignment: Alignment = AlignmentCenter)
+    public func align(in rect: CGRect, alignment: Alignment = AlignmentCenter)
     {
         let pathBounds = bounds
         
@@ -30,28 +30,29 @@ extension UIBezierPath
         translate(tx: tx, ty: ty)
     }
     
-    public func alignIn(rect:CGRect, contentMode: UIViewContentMode)
+    public func align(in rect: CGRect, contentMode: UIViewContentMode)
     {
         let pathBounds = bounds
         
         switch contentMode
         {
-        case .ScaleAspectFit:
+        case .scaleAspectFit:
             let factor = min(rect.height/pathBounds.height, rect.width/pathBounds.width)
             scale(sx:factor, sy:factor)
             
-        case .ScaleAspectFill:
+        case .scaleAspectFill:
             let factor = max(rect.height/pathBounds.height, rect.width/pathBounds.width)
             scale(sx: factor, sy:factor)
             
-        case .ScaleToFill:
+        case .scaleToFill:
             scale(sx: rect.width/pathBounds.width, sy: rect.height/pathBounds.height)
 
-        default: break
+        default:
+            break
             //NOOP
         }
         
-        alignIn(rect, alignment: contentMode.alignment)
+        align(in: rect, alignment: contentMode.alignment)
     }
 }
 

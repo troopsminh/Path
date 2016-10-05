@@ -21,21 +21,21 @@ extension UIBezierPath
         let leftCtrlPoint = CGPoint(x: -radius, y: radius * 0.75)
         let rightCtrlPoint = CGPoint(x: radius, y: radius * 0.75)
         
-        moveToPoint(topPoint)
+        move(to: topPoint)
         
-        addCurveToPoint(CGPoint(x: -radius, y: 0), controlPoint1: topCtrlPoint, controlPoint2: leftCtrlPoint)
+        addCurve(to: CGPoint(x: -radius, y: 0), controlPoint1: topCtrlPoint, controlPoint2: leftCtrlPoint)
         
-        addArcWithCenter(CGPointZero, radius: radius, startAngle: π, endAngle: 0, clockwise: true)
+        addArc(withCenter: CGPoint.zero, radius: radius, startAngle: π, endAngle: 0, clockwise: true)
         
-        addCurveToPoint(topPoint, controlPoint1: rightCtrlPoint, controlPoint2: topCtrlPoint)
+        addCurve(to: topPoint, controlPoint1: rightCtrlPoint, controlPoint2: topCtrlPoint)
         
-        closePath()
+        close()
         
-        applyTransform(CGAffineTransformMakeTranslation(center.x, center.y))
+        apply(CGAffineTransform(translationX: center.x, y: center.y))
     }
     
-    public func addDrop(center: CGPoint, radius: CGFloat)
+    public func addDrop(_ center: CGPoint, radius: CGFloat)
     {
-        appendPath(UIBezierPath(dropWithCenter: center, radius: radius))
+        append(UIBezierPath(dropWithCenter: center, radius: radius))
     }
 }

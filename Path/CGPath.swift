@@ -12,10 +12,10 @@ import UIKit
 
 extension CGPath
 {
-    public func contains(point: CGPoint) -> Bool
-    {
-        return CGPathContainsPoint(self, nil, point, false)
-    }
+//    public func contains(_ point: CGPoint) -> Bool
+//    {
+//        return CGPathContainsPoint(self, nil, point, false)
+//    }
 }
 
 //MARK: - Elements
@@ -26,19 +26,19 @@ extension CGPathElement : CustomDebugStringConvertible
         {
             switch (type)
             {
-            case .MoveToPoint:
+            case .moveToPoint:
                 return "move(\(points[0]))"
                 
-            case .AddLineToPoint:
+            case .addLineToPoint:
                 return "line(\(points[0]))"
                 
-            case .AddQuadCurveToPoint:
+            case .addQuadCurveToPoint:
                 return "quadCurve(\(points[0]), \(points[1]))"
                 
-            case .AddCurveToPoint:
+            case .addCurveToPoint:
                 return "curve(\(points[0]), \(points[1]), \(points[2]))"
                 
-            case .CloseSubpath:
+            case .closeSubpath:
                 return "close()"
             }
     }
@@ -46,19 +46,19 @@ extension CGPathElement : CustomDebugStringConvertible
 
 public extension CGPath
 {
-    private typealias PathApplier = @convention(block) (UnsafePointer<CGPathElement>) -> ()
+    fileprivate typealias PathApplier = @convention(block) (UnsafePointer<CGPathElement>) -> ()
     // Note: You must declare PathApplier as @convention(block), because
     // if you don't, you get "fatal error: can't unsafeBitCast between
     // types of different sizes" at runtime, on Mac OS X at least.
     
-    private func pathApply(path: CGPath!, block: PathApplier)
+    fileprivate func pathApply(_ path: CGPath!, block: PathApplier)
     {
-        let callback: @convention(c) (UnsafeMutablePointer<Void>, UnsafePointer<CGPathElement>) -> Void = { (info, element) in
-            let block = unsafeBitCast(info, PathApplier.self)
+        let callback: @convention(c) (UnsafeMutableRawPointer, UnsafePointer<CGPathElement>) -> Void = { (info, element) in
+            let block = unsafeBitCast(info, to: PathApplier.self)
             block(element)
         }
         
-        CGPathApply(path, unsafeBitCast(block, UnsafeMutablePointer<Void>.self), unsafeBitCast(callback, CGPathApplierFunction.self))
+        path.apply(info: unsafeBitCast(block, to: UnsafeMutableRawPointer.self), function: unsafeBitCast(callback, to: CGPathApplierFunction.self))
     }
     
     public var debugDescription : String
@@ -67,7 +67,7 @@ public extension CGPath
             
             pathApply(self) { element in
                 
-                elementDescriptions.append(element.memory.debugDescription)
+                elementDescriptions.append(element.pointee.debugDescription)
                 
 //                switch (element.memory.type) {
 //                case .MoveToPoint:
@@ -83,18 +83,18 @@ public extension CGPath
 //                }
             }
             
-            return elementDescriptions.joinWithSeparator("\n")
+            return elementDescriptions.joined(separator: "\n")
     }
     
-    public func elements() -> Array<CGPathElement>
+    public func cgPathElements() -> Array<CGPathElement>
     {
         var cgPathElements = Array<CGPathElement>()
         
-        withUnsafeMutablePointer(&cgPathElements) { cgPathElementsPointer in
+        withUnsafeMutablePointer(to: &cgPathElements) { cgPathElementsPointer in
             
             pathApply(self) { elementPointer in
                 
-                cgPathElementsPointer.memory.append(elementPointer.memory)
+                cgPathElementsPointer.pointee.append(elementPointer.pointee)
                 
                 //                let element = elementPointer.memory
                 //
@@ -119,11 +119,11 @@ public extension CGPath
         return cgPathElements
     }
     
-    func enumerateElements(closure : CGPathElement -> ())
+    func enumerateElements(_ closure : (CGPathElement) -> ())
     {
         pathApply(self) { (elementPointer: UnsafePointer<CGPathElement>) -> Void in
             
-            closure(elementPointer.memory)
+            closure(elementPointer.pointee)
             
         }
     }
@@ -132,17 +132,17 @@ public extension CGPath
 
 // MARK: - Font
 
-public extension CTRunRef
+public extension CTRun
 {
-    var font : CTFontRef
+    var font : CTFont
         {
-            let key = unsafeAddressOf(kCTFontAttributeName)
+            let key = Unmanaged.passUnretained(kCTFontAttributeName).toOpaque()
             
             let attributes = CTRunGetAttributes(self)
             
             let value = CFDictionaryGetValue(attributes, key)
             
-            let font:CTFontRef = unsafeBitCast(value, CTFontRef.self)
+            let font:CTFont = unsafeBitCast(value, to: CTFont.self)
             
             return font
     }
@@ -152,9 +152,9 @@ public extension CTRunRef
             return CTRunGetGlyphCount(self)
     }
     
-    func getGlyphs(range: CFRange, _ buffer: UnsafeMutablePointer<CGGlyph>) -> Array<CGGlyph>
+    func getGlyphs(_ range: CFRange, _ buffer: UnsafeMutablePointer<CGGlyph>) -> Array<CGGlyph>
     {
-        var glyphs = Array<CGGlyph>(count: range.length, repeatedValue: CGGlyph())
+        var glyphs = Array<CGGlyph>(repeating: CGGlyph(), count: range.length)
         
         CTRunGetGlyphs(self, range, &glyphs)
         
@@ -166,7 +166,7 @@ public extension CTRunRef
 
 extension CTFont
 {
-    func pathForGlyph(glyph: CGGlyph, matrix: UnsafePointer<CGAffineTransform> = nil) -> CGPath?
+    func pathForGlyph(_ glyph: CGGlyph, matrix: UnsafePointer<CGAffineTransform>? = nil) -> CGPath?
     {
         return CTFontCreatePathForGlyph(self, glyph, matrix)
     }
@@ -177,15 +177,15 @@ extension CTFont
 
 // MARK: Single Line String Path
 
-public func CGPathCreateSingleLineStringWithAttributedString(attrString: NSAttributedString) -> CGPathRef
+public func CGPathCreateSingleLineStringWithAttributedString(_ attrString: NSAttributedString) -> CGPath
 {
-    let letters = CGPathCreateMutable()
+    let letters = CGMutablePath()
     
     let line = CTLineCreateWithAttributedString(attrString)
     
     let anyArray = CTLineGetGlyphRuns(line) as [AnyObject]
     
-    if let runArray = anyArray as? Array<CTRunRef>
+    if let runArray = anyArray as? Array<CTRun>
     {
         for run in runArray
         {
@@ -196,7 +196,7 @@ public func CGPathCreateSingleLineStringWithAttributedString(attrString: NSAttri
                 // get glyph and position
                 let thisGlyphRange = CFRangeMake(runGlyphIndex, 1)
                 var glyph : CGGlyph = 0
-                var position : CGPoint = CGPointZero
+                var position : CGPoint = CGPoint.zero
                 
                 CTRunGetGlyphs(run, thisGlyphRange, &glyph)
                 
@@ -204,14 +204,20 @@ public func CGPathCreateSingleLineStringWithAttributedString(attrString: NSAttri
                 
                 // Get PATH of outline
                 
-                let letter = CTFontCreatePathForGlyph(run.font, glyph, nil)
-                var t = CGAffineTransformMakeTranslation(position.x, position.y)
-                CGPathAddPath(letters, &t, letter)
+                if let letter = CTFontCreatePathForGlyph(run.font, glyph, nil)
+                {
+                    let t = CGAffineTransform(translationX: position.x, y: position.y)
+                    
+                    letters.addPath(letter, transform: t)
+                }
+
+                
+//                CGPathAddPath(letters, &t, letter)
             }
         }
     }
     
-    return CGPathCreateCopy(letters) ?? letters
+    return letters.copy() ?? letters
 }
 
 /*

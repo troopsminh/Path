@@ -9,8 +9,8 @@
 import Arithmetic
 import Graphics
 
-private func heartX(t: CGFloat) -> CGFloat { return 16 * pow(sin(t), 3) }
-private func heartY(t: CGFloat) -> CGFloat
+private func heartX(_ t: CGFloat) -> CGFloat { return 16 * pow(sin(t), 3) }
+private func heartY(_ t: CGFloat) -> CGFloat
 {
     let a = 13 * cos(t)
     let b = -5 * cos(2 * t)
@@ -32,20 +32,20 @@ extension UIBezierPath
         
         let factor = radius / 16
         
-        func heart(t: CGFloat) -> CGPoint { return CGPoint(x: heartX(t), y: heartY(t)) * factor }
+        func heart(_ t: CGFloat) -> CGPoint { return CGPoint(x: heartX(t), y: heartY(t)) * factor }
         
-        moveToPoint(heart(0))
+        move(to: heart(0))
         
         let step = min(0.1, 10/radius)
         
-        for t in step.stride(to: CGFloat.π2, by: step)
+        for t in stride(from: step, to: CGFloat.π2, by: step)
         {
-            addLineToPoint(heart(t))
+            addLine(to: heart(t))
         }
         
-        closePath()
+        close()
         
-        transformToFit(rect)
+        transform(toFit: rect)
     }
     
     public convenience init(heartCenteredAt center: CGPoint, radius: CGFloat)
@@ -54,18 +54,18 @@ extension UIBezierPath
         
         let factor = radius / 16
         
-        func heart(t: CGFloat) -> CGPoint { return CGPoint(x: heartX(t), y: heartY(t)) * factor }
+        func heart(_ t: CGFloat) -> CGPoint { return CGPoint(x: heartX(t), y: heartY(t)) * factor }
         
-        moveToPoint(heart(0))
+        move(to: heart(0))
 
         let step = min(0.1, 10/radius)
         
-        for t in step.stride(to: CGFloat.π2, by: step)
+        for t in stride(from: step, to: CGFloat.π2, by: step)
         {
-            addLineToPoint(heart(t))
+            addLine(to: heart(t))
         }
         
-        closePath()
+        close()
         
         translate(center)
     }

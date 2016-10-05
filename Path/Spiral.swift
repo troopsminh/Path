@@ -13,23 +13,23 @@ import Arithmetic
 
 extension UIBezierPath
 {
-    public convenience init(spiralWithCenter center: CGPoint = CGPointZero, radius: CGFloat, steps: CGFloat, loopCount: CGFloat)
+    public convenience init(spiralWithCenter center: CGPoint = CGPoint.zero, radius: CGFloat, steps: CGFloat, loopCount: CGFloat)
     {
         self.init()
         
         let away = radius / steps
         let around = loopCount / steps * 2 * CGFloat(M_PI)
         
-        let points = 1.stride(through: Int(ceil(steps)), by: 1).map { (step) -> CGPoint in
+        let points = stride(from: 1, through: Int(ceil(steps)), by: 1).map { (step) -> CGPoint in
             let x = cos(step * around) * step * away
             let y = sin(step * around) * step * away
             
             return CGPoint(x: x, y: y) + center
         }
         
-        moveToPoint(center)
+        move(to: center)
         
-        points.forEach { addLineToPoint($0) }
+        points.forEach { addLine(to: $0) }
     }
 }
 
@@ -52,7 +52,7 @@ public extension UIBezierPath
     }
     
     func addArchimedeanSpiral(
-        center: CGPoint,
+        _ center: CGPoint,
         innerRadius: CGFloat,
         outerRadius: CGFloat,
         clockwise: Bool,
@@ -68,7 +68,7 @@ public extension UIBezierPath
         
         var lastPointAdded = CGPoint(x: a, y: 0)
         
-        spiral.moveToPoint(lastPointAdded)
+        spiral.move(to: lastPointAdded)
         
         var phi = CGFloat(0)
         let phiMax = loops * π2
@@ -90,7 +90,7 @@ public extension UIBezierPath
             else
             {
                 lastPointAdded = point
-                spiral.addLineToPoint(point)
+                spiral.addLine(to: point)
             }
             
             phi += phiStep
@@ -98,6 +98,6 @@ public extension UIBezierPath
         
         spiral.translate(tx: center.x, ty: center.y)
         
-        appendPath(spiral)
+        append(spiral)
     }
 }

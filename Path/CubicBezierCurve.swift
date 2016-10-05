@@ -11,7 +11,7 @@ import Arithmetic
 import Graphics
 import Collections
 
-public class CubicBezierCurve
+open class CubicBezierCurve
 {
     // MARK: - points
     
@@ -43,7 +43,7 @@ public class CubicBezierCurve
     
     /// Calculates the position of the Bézier curve at time `t` according to the definition, as a cubic polynomial
     /// paramter t: time, [0;1]
-    func positionAt(t: CGFloat) -> CGPoint
+    func positionAt(_ t: CGFloat) -> CGPoint
     {
         let t² = t * t
         let t³ = t² * t
@@ -56,7 +56,7 @@ public class CubicBezierCurve
     
     /// Calculates the tangent vector for the Bézier curve at time `t`, as the derivative of the Bézier polynomial
     /// paramter t: time, [0;1]
-    func tangentAt(t: CGFloat) -> CGVector
+    func tangentAt(_ t: CGFloat) -> CGVector
     {
         let t² = t * t
         
@@ -68,7 +68,7 @@ public class CubicBezierCurve
     
     // MARK: - bounds
     
-    public lazy var bounds : CGRect = {
+    open lazy var bounds : CGRect = {
         
         let minX = min(self.p0.x, self.p1.x, self.p2.x, self.p3.x)
         let minY = min(self.p0.y, self.p1.y, self.p2.y, self.p3.y)
@@ -88,16 +88,16 @@ public class CubicBezierCurve
     // MARK: - Length
     
     /// the approximated arc-length of the curve
-    public var length : CGFloat { return positionsTangentsAndArcLengths.last?.arcLength ?? 0 } // CGFloat.zero }
+    open var length : CGFloat { return positionsTangentsAndArcLengths.last?.arcLength ?? 0 } // CGFloat.zero }
     
     /// Table of positions, tangent-vectors, and approximated accumulated arc-lengths, used for mapping distance to time and approximate total arc-length of the curve
     /// Lazy as it may never be used, depending on what the curve is used for
-    public private(set) lazy var positionsTangentsAndArcLengths : Array<(position: CGPoint, tangent: CGVector, arcLength: CGFloat)> =
+    open fileprivate(set) lazy var positionsTangentsAndArcLengths : Array<(position: CGPoint, tangent: CGVector, arcLength: CGFloat)> =
     {
         // Empirical investigation has shown that 100 divisions will yield arc-length approximations with less than 0.1% error, which would be less than half a unit for a 500 units long curve.
         let divisions = 100
         
-        var table = Array<(position: CGPoint, tangent: CGVector, arcLength: CGFloat)>(count: divisions + 1, repeatedValue: (CGPointZero, CGVector.zero, 0))
+        var table = Array<(position: CGPoint, tangent: CGVector, arcLength: CGFloat)>(repeating: (CGPoint.zero, CGVector.zero, 0), count: divisions + 1)
         
         var lastPoint = self.positionAt(0)
         
@@ -121,7 +121,7 @@ public class CubicBezierCurve
     }()
     
     /// parameter distance: the parameterized distance, assumed to be in [0;1]
-    func timeForDistance(distance: CGFloat) -> CGFloat
+    func timeForDistance(_ distance: CGFloat) -> CGFloat
     {
         let lastIndex = positionsTangentsAndArcLengths.endIndex - 1 //arcLengths.count - 1
         
@@ -150,39 +150,39 @@ public class CubicBezierCurve
         }
     }
     
-    func draw(inContext context: CGContextRef? = UIGraphicsGetCurrentContext())
+    func draw(inContext context: CGContext? = UIGraphicsGetCurrentContext())
     {
-        CGContextSaveGState(context)
+        context?.saveGState()
         
-        UIColor.blackColor().setStroke()
+        UIColor.black.setStroke()
         
         var path = UIBezierPath(withCubicBezierCurve: self)
         
         path.stroke()
         
-        let red = UIColor.redColor()
+        let red = UIColor.red
         red.setStroke()
         red.setFill()
         
         let radius = max(3, min(distance(p0, p1), distance(p2, p3)) / 100)
         
         path = UIBezierPath()
-        path.moveToPoint(p0)
-        path.addLineToPoint(p1)
-        path.addArcWithCenter(p1, radius: radius, startAngle: 0, endAngle: π2, clockwise: true)
+        path.move(to: p0)
+        path.addLine(to: p1)
+        path.addArc(withCenter: p1, radius: radius, startAngle: 0, endAngle: π2, clockwise: true)
         
         path.fill()
         path.stroke()
         
         path = UIBezierPath()
-        path.moveToPoint(p3)
-        path.addLineToPoint(p2)
-        path.addArcWithCenter(p2, radius: radius, startAngle: 0, endAngle: π2, clockwise: true)
+        path.move(to: p3)
+        path.addLine(to: p2)
+        path.addArc(withCenter: p2, radius: radius, startAngle: 0, endAngle: π2, clockwise: true)
         
         path.fill()
         path.stroke()
         
-        let blue = UIColor.blueColor()
+        let blue = UIColor.blue
         blue.setStroke()
         blue.setFill()
         
@@ -203,7 +203,7 @@ public class CubicBezierCurve
             p.draw(atPoint: point)
         }
         
-        CGContextRestoreGState(context)
+        context?.restoreGState()
     }
 }
 
@@ -213,14 +213,14 @@ extension CubicBezierCurve
 {
     // MARK: Text
     
-    func warp(text: String, font: UIFont, textAlignment: NSTextAlignment = .Natural) -> UIBezierPath
+    func warp(_ text: String, font: UIFont, textAlignment: NSTextAlignment = .natural) -> UIBezierPath
     {
         let path = UIBezierPath(string: text, withFont: font)
         
         return warp(path, align: textAlignment)
     }
     
-    public func approximateBoundsForFont(font: UIFont) -> CGRect
+    public func approximateBoundsForFont(_ font: UIFont) -> CGRect
     {
         let decender = font.descender
         let ascender = font.ascender
@@ -251,12 +251,12 @@ extension CubicBezierCurve
             return CGRect(x: minX, y: minY, width: maxX - minX, height: maxY - minY)
         }
 
-        return CGRectZero
+        return CGRect.zero
     }
     
     // MARK: Generic
     
-    func warpPoint(point: CGPoint, width: CGFloat) -> CGPoint?
+    func warpPoint(_ point: CGPoint, width: CGFloat) -> CGPoint?
     {
         guard point.x >= 0 && point.x <= width else { return nil }
         
@@ -276,7 +276,7 @@ extension CubicBezierCurve
         return warpedPoint
     }
     
-    func warp(p: UIBezierPath, align: NSTextAlignment = .Justified) -> UIBezierPath
+    func warp(_ p: UIBezierPath, align: NSTextAlignment = .justified) -> UIBezierPath
     {
         guard !p.elements.isEmpty else { return p }
         
@@ -285,45 +285,45 @@ extension CubicBezierCurve
         
         switch align
         {
-        case .Center:
-            path.applyTransform(CGAffineTransformMakeTranslation((length - path.bounds.width) / 2, 0))
+        case .center:
+            path.apply(CGAffineTransform(translationX: (length - path.bounds.width) / 2, y: 0))
             width = max(length, path.bounds.width)
             
-        case .Left:
-            path.applyTransform(CGAffineTransformMakeTranslation(-path.bounds.minX, 0))
+        case .left:
+            path.apply(CGAffineTransform(translationX: -path.bounds.minX, y: 0))
             width = length
             
-        case .Right:
-            path.applyTransform(CGAffineTransformMakeTranslation(length - path.bounds.maxX, 0))
+        case .right:
+            path.apply(CGAffineTransform(translationX: length - path.bounds.maxX, y: 0))
             width = length
             
-        case .Justified:
-            path.applyTransform(CGAffineTransformMakeTranslation(-path.bounds.minX, 0))
+        case .justified:
+            path.apply(CGAffineTransform(translationX: -path.bounds.minX, y: 0))
             width = path.bounds.width
             
 
-        case .Natural:
-            switch UIApplication.sharedApplication().userInterfaceLayoutDirection
+        case .natural:
+            switch UIApplication.shared.userInterfaceLayoutDirection
             {
-            case .LeftToRight:
-                path.applyTransform(CGAffineTransformMakeTranslation(-path.bounds.minX, 0))
+            case .leftToRight:
+                path.apply(CGAffineTransform(translationX: -path.bounds.minX, y: 0))
                 width = length
                 
-            case .RightToLeft:
-                path.applyTransform(CGAffineTransformMakeTranslation(length - path.bounds.maxX, 0))
+            case .rightToLeft:
+                path.apply(CGAffineTransform(translationX: length - path.bounds.maxX, y: 0))
                 width = length
             }
         }
         
         let frame = path.bounds
         
-        func warpPoint(point: CGPoint) -> CGPoint?
+        func warpPoint(_ point: CGPoint) -> CGPoint?
         {
             return self.warpPoint(point, width: width)
         }
         
-        var subPathBeginPoint = CGPointZero
-        var beginPoint = CGPointZero
+        var subPathBeginPoint = CGPoint.zero
+        var beginPoint = CGPoint.zero
         
         let warpedPath : UIBezierPath = UIBezierPath()
         
@@ -331,17 +331,17 @@ extension CubicBezierCurve
         {
             switch element
             {
-            case .MoveToPoint(let point):
+            case .moveToPoint(let point):
                 
                 if let warpedPoint = warpPoint(point)
                 {
                     subPathBeginPoint = point
                     beginPoint = point
                     
-                    warpedPath.moveToPoint(warpedPoint)
+                    warpedPath.move(to: warpedPoint)
                 }
                 
-            case .AddLineToPoint(let endPoint):
+            case .addLineToPoint(let endPoint):
                 
                 if let warpedCtrlPoint1 = warpPoint((2 * beginPoint + endPoint) / 3)
                     , let warpedCtrlPoint2 = warpPoint((beginPoint + 2 * endPoint) / 3)
@@ -350,10 +350,10 @@ extension CubicBezierCurve
                     
                     beginPoint = endPoint
                     
-                    warpedPath.addCurveToPoint(warpedEndPoint, controlPoint1: warpedCtrlPoint1, controlPoint2: warpedCtrlPoint2)
+                    warpedPath.addCurve(to: warpedEndPoint, controlPoint1: warpedCtrlPoint1, controlPoint2: warpedCtrlPoint2)
                 }
                 
-            case .AddQuadCurveToPoint(let ctrlPoint, let endPoint):
+            case .addQuadCurveToPoint(let ctrlPoint, let endPoint):
                 
                 if let warpedCtrlPoint1 = warpPoint((2 * ctrlPoint + beginPoint) / 3)
                     , let warpedCtrlPoint2 = warpPoint((2 * ctrlPoint + endPoint) / 3)
@@ -361,10 +361,10 @@ extension CubicBezierCurve
                 {
                     beginPoint = endPoint
                     
-                    warpedPath.addCurveToPoint(warpedEndPoint, controlPoint1: warpedCtrlPoint1, controlPoint2: warpedCtrlPoint2)
+                    warpedPath.addCurve(to: warpedEndPoint, controlPoint1: warpedCtrlPoint1, controlPoint2: warpedCtrlPoint2)
                 }
                 
-            case .AddCurveToPoint(let ctrlPoint1, let ctrlPoint2, let endPoint):
+            case .addCurveToPoint(let ctrlPoint1, let ctrlPoint2, let endPoint):
                 
                 if let warpedCtrlPoint1 = warpPoint(ctrlPoint1)
                     , let warpedCtrlPoint2 = warpPoint(ctrlPoint2)
@@ -372,10 +372,10 @@ extension CubicBezierCurve
                 {
                     beginPoint = endPoint
                     
-                    warpedPath.addCurveToPoint(warpedEndPoint, controlPoint1: warpedCtrlPoint1, controlPoint2: warpedCtrlPoint2)
+                    warpedPath.addCurve(to: warpedEndPoint, controlPoint1: warpedCtrlPoint1, controlPoint2: warpedCtrlPoint2)
                 }
                 
-            case .CloseSubpath:
+            case .closeSubpath:
                 
                 let endPoint = subPathBeginPoint
                 
@@ -385,14 +385,14 @@ extension CubicBezierCurve
                         , let warpedCtrlPoint2 = warpPoint((beginPoint + 2 * endPoint) / 3)
                         , let warpedEndPoint = warpPoint(endPoint)
                     {
-                        warpedPath.addCurveToPoint(warpedEndPoint, controlPoint1: warpedCtrlPoint1, controlPoint2: warpedCtrlPoint2)
+                        warpedPath.addCurve(to: warpedEndPoint, controlPoint1: warpedCtrlPoint1, controlPoint2: warpedCtrlPoint2)
                     }
                 }
                 
-                warpedPath.closePath()
+                warpedPath.close()
                 
-                beginPoint = CGPointZero
-                subPathBeginPoint = CGPointZero
+                beginPoint = CGPoint.zero
+                subPathBeginPoint = CGPoint.zero
             }
         }
         

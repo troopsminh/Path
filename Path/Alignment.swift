@@ -20,40 +20,40 @@ extension UIViewContentMode
     {
         switch self
         {
-        case .ScaleAspectFit:
+        case .scaleAspectFit:
             return AlignmentCenter
             
-        case .ScaleAspectFill:
+        case .scaleAspectFill:
             return AlignmentCenter
             
-        case .ScaleToFill:
+        case .scaleToFill:
             return AlignmentCenter
             
-        case .Bottom:
+        case .bottom:
             return CGPoint(0.5, 1.0)
             
-        case .BottomLeft:
+        case .bottomLeft:
             return CGPoint(0.0, 1.0)
             
-        case .BottomRight:
+        case .bottomRight:
             return CGPoint(1.0, 1.0)
             
-        case .Top:
+        case .top:
             return CGPoint(0.5, 0.0)
             
-        case .TopLeft:
+        case .topLeft:
             return CGPoint(0.0, 0.0)
             
-        case .TopRight:
+        case .topRight:
             return CGPoint(1.0, 0.0)
             
-        case .Left:
+        case .left:
             return CGPoint(0.0, 0.5)
             
-        case .Right:
+        case .right:
             return CGPoint(1.0, 0.5)
             
-        case .Center:
+        case .center:
             return AlignmentCenter
             
         default:
