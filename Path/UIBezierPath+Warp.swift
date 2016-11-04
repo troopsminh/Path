@@ -14,8 +14,8 @@ extension UIBezierPath
 {
     // MARK: Text
     
-    /// Warps the text along this path
-    public func warp(_ text: String?, font: UIFont, textAlignment: NSTextAlignment = .natural) -> UIBezierPath
+    /// Warps `text` along this path. Works best if `text` has no newline characters 
+    public func warp(text: String?, font: UIFont, textAlignment: NSTextAlignment = .natural) -> UIBezierPath
     {
         let path = UIBezierPath(string: text ?? "", withFont: font)
         

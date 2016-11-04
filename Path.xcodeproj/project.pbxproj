@@ -39,6 +39,8 @@
 		8F7E0CA91C870A1800C2104D /* Spiral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0CA81C870A1800C2104D /* Spiral.swift */; };
 		8F7E0CAB1C870B5200C2104D /* Cresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0CAA1C870B5200C2104D /* Cresent.swift */; };
 		8F7E0CAD1C870CFE00C2104D /* Polygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0CAC1C870CFE00C2104D /* Polygon.swift */; };
+		8F8C21B81DCC834300E7DBD9 /* UIBezierPath+Dots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8C21B71DCC834300E7DBD9 /* UIBezierPath+Dots.swift */; };
+		8F8C21BD1DCC890500E7DBD9 /* DotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8C21BC1DCC890500E7DBD9 /* DotsViewController.swift */; };
 		8F97AD471CEEE67C002DF85C /* UIBezierPath+Align.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F97AD461CEEE67C002DF85C /* UIBezierPath+Align.swift */; };
 		8F97AD491CEEEE79002DF85C /* Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F97AD481CEEEE79002DF85C /* Alignment.swift */; };
 		8FA50D091CABC2BF005D28B6 /* PathLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA50D081CABC2BF005D28B6 /* PathLabel.swift */; };
@@ -55,6 +57,13 @@
 		8FA50D281CABC8B5005D28B6 /* Collections.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0C9F1C8701CE00C2104D /* Collections.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8FA50D291CABC8BB005D28B6 /* Graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0CA11C8701CE00C2104D /* Graphics.framework */; };
 		8FA50D2A1CABC8BB005D28B6 /* Graphics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0CA11C8701CE00C2104D /* Graphics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8FC022551DA51D5C009BC08C /* DragViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC022541DA51D5C009BC08C /* DragViewController.swift */; };
+		8FC022581DA52210009BC08C /* Animation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC022571DA52210009BC08C /* Animation.framework */; };
+		8FC022591DA52225009BC08C /* Animation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC022571DA52210009BC08C /* Animation.framework */; };
+		8FC0225A1DA52225009BC08C /* Animation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC022571DA52210009BC08C /* Animation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8FC0225C1DA52262009BC08C /* PathLabel+Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC0225B1DA52262009BC08C /* PathLabel+Animate.swift */; };
+		8FC0225F1DA524CC009BC08C /* Easing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC0225D1DA52498009BC08C /* Easing.framework */; };
+		8FC022601DA5251D009BC08C /* Easing.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC0225D1DA52498009BC08C /* Easing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8FCAE9311C87171900D69136 /* SuperEllipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCAE9301C87171900D69136 /* SuperEllipse.swift */; };
 		8FCAE9331C87183100D69136 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCAE9321C87183100D69136 /* Star.swift */; };
 		8FCAE9351C87184B00D69136 /* Drop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCAE9341C87184B00D69136 /* Drop.swift */; };
@@ -89,9 +98,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				8FC022601DA5251D009BC08C /* Easing.framework in Embed Frameworks */,
 				8FA50D261CABC8B0005D28B6 /* Arithmetic.framework in Embed Frameworks */,
 				8FA50D211CABC8A7005D28B6 /* Path.framework in Embed Frameworks */,
 				8FA50D281CABC8B5005D28B6 /* Collections.framework in Embed Frameworks */,
+				8FC0225A1DA52225009BC08C /* Animation.framework in Embed Frameworks */,
 				8FA50D2A1CABC8BB005D28B6 /* Graphics.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -132,6 +143,8 @@
 		8F7E0CA81C870A1800C2104D /* Spiral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spiral.swift; sourceTree = "<group>"; };
 		8F7E0CAA1C870B5200C2104D /* Cresent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cresent.swift; sourceTree = "<group>"; };
 		8F7E0CAC1C870CFE00C2104D /* Polygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polygon.swift; sourceTree = "<group>"; };
+		8F8C21B71DCC834300E7DBD9 /* UIBezierPath+Dots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Dots.swift"; sourceTree = "<group>"; };
+		8F8C21BC1DCC890500E7DBD9 /* DotsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotsViewController.swift; sourceTree = "<group>"; };
 		8F97AD461CEEE67C002DF85C /* UIBezierPath+Align.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Align.swift"; sourceTree = "<group>"; };
 		8F97AD481CEEEE79002DF85C /* Alignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alignment.swift; sourceTree = "<group>"; };
 		8FA50D081CABC2BF005D28B6 /* PathLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathLabel.swift; sourceTree = "<group>"; };
@@ -142,6 +155,10 @@
 		8FA50D171CABC7CE005D28B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FA50D1A1CABC7CE005D28B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8FA50D1C1CABC7CE005D28B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FC022541DA51D5C009BC08C /* DragViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragViewController.swift; sourceTree = "<group>"; };
+		8FC022571DA52210009BC08C /* Animation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Animation.framework; path = Carthage/Build/iOS/Animation.framework; sourceTree = "<group>"; };
+		8FC0225B1DA52262009BC08C /* PathLabel+Animate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PathLabel+Animate.swift"; sourceTree = "<group>"; };
+		8FC0225D1DA52498009BC08C /* Easing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Easing.framework; path = Carthage/Build/iOS/Easing.framework; sourceTree = "<group>"; };
 		8FCAE9301C87171900D69136 /* SuperEllipse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperEllipse.swift; sourceTree = "<group>"; };
 		8FCAE9321C87183100D69136 /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		8FCAE9341C87184B00D69136 /* Drop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drop.swift; sourceTree = "<group>"; };
@@ -157,6 +174,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FC0225F1DA524CC009BC08C /* Easing.framework in Frameworks */,
+				8FC022581DA52210009BC08C /* Animation.framework in Frameworks */,
 				8F7E0CA21C8701CE00C2104D /* Arithmetic.framework in Frameworks */,
 				8F7E0CA31C8701CE00C2104D /* Collections.framework in Frameworks */,
 				8F7E0CA51C8701CE00C2104D /* Graphics.framework in Frameworks */,
@@ -181,6 +200,7 @@
 				8FA50D251CABC8B0005D28B6 /* Arithmetic.framework in Frameworks */,
 				8FA50D201CABC8A7005D28B6 /* Path.framework in Frameworks */,
 				8FA50D271CABC8B5005D28B6 /* Collections.framework in Frameworks */,
+				8FC022591DA52225009BC08C /* Animation.framework in Frameworks */,
 				8FA50D291CABC8BB005D28B6 /* Graphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,14 +211,12 @@
 		8F7E0C681C85E00D00C2104D = {
 			isa = PBXGroup;
 			children = (
-				8F7E0C9E1C8701CD00C2104D /* Arithmetic.framework */,
-				8F7E0C9F1C8701CE00C2104D /* Collections.framework */,
-				8F7E0CA11C8701CE00C2104D /* Graphics.framework */,
 				8F7E0C9C1C86FF1100C2104D /* Cartfile */,
 				8F7E0C741C85E00D00C2104D /* Path */,
 				8F7E0C801C85E00D00C2104D /* PathTests */,
 				8FA50D0F1CABC7CE005D28B6 /* PathDemo */,
 				8F7E0C731C85E00D00C2104D /* Products */,
+				8FC022561DA5220F009BC08C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -231,6 +249,7 @@
 				8F97AD461CEEE67C002DF85C /* UIBezierPath+Align.swift */,
 				8F55D7931D49152600E58FBB /* UIBezierPath+Copy.swift */,
 				8F55D7971D49484200E58FBB /* UIBezierPath+Heart.swift */,
+				8F8C21B71DCC834300E7DBD9 /* UIBezierPath+Dots.swift */,
 				8F97AD481CEEEE79002DF85C /* Alignment.swift */,
 				8F7711FB1C897EA900B6B218 /* LineJoin.swift */,
 				8F7711FD1C897F8300B6B218 /* LineCap.swift */,
@@ -244,6 +263,7 @@
 				8F77117A1C872FAD00B6B218 /* Plus.swift */,
 				8F77117C1C8730F200B6B218 /* Bars.swift */,
 				8FA50D081CABC2BF005D28B6 /* PathLabel.swift */,
+				8FC0225B1DA52262009BC08C /* PathLabel+Animate.swift */,
 				8F7E0C9B1C86FEAD00C2104D /* Curves */,
 				8F7E0C8F1C85FBC600C2104D /* GraphicsPath.swift */,
 				8F7E0C911C86F90400C2104D /* CGPath.swift */,
@@ -284,12 +304,26 @@
 			children = (
 				8FA50D101CABC7CE005D28B6 /* AppDelegate.swift */,
 				8FA50D121CABC7CE005D28B6 /* ViewController.swift */,
+				8FC022541DA51D5C009BC08C /* DragViewController.swift */,
 				8FA50D141CABC7CE005D28B6 /* Main.storyboard */,
+				8F8C21BC1DCC890500E7DBD9 /* DotsViewController.swift */,
 				8FA50D171CABC7CE005D28B6 /* Assets.xcassets */,
 				8FA50D191CABC7CE005D28B6 /* LaunchScreen.storyboard */,
 				8FA50D1C1CABC7CE005D28B6 /* Info.plist */,
 			);
 			path = PathDemo;
+			sourceTree = "<group>";
+		};
+		8FC022561DA5220F009BC08C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8FC0225D1DA52498009BC08C /* Easing.framework */,
+				8F7E0C9E1C8701CD00C2104D /* Arithmetic.framework */,
+				8F7E0C9F1C8701CE00C2104D /* Collections.framework */,
+				8F7E0CA11C8701CE00C2104D /* Graphics.framework */,
+				8FC022571DA52210009BC08C /* Animation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,6 +483,7 @@
 				8F7E0CAB1C870B5200C2104D /* Cresent.swift in Sources */,
 				8F55D7941D49152600E58FBB /* UIBezierPath+Copy.swift in Sources */,
 				8F77117D1C8730F200B6B218 /* Bars.swift in Sources */,
+				8F8C21B81DCC834300E7DBD9 /* UIBezierPath+Dots.swift in Sources */,
 				8F97AD471CEEE67C002DF85C /* UIBezierPath+Align.swift in Sources */,
 				8FEA6B471DA4F7A2002460BB /* UIBezierPath+Translate.swift in Sources */,
 				8F97AD491CEEEE79002DF85C /* Alignment.swift in Sources */,
@@ -465,6 +500,7 @@
 				8F7E0CAD1C870CFE00C2104D /* Polygon.swift in Sources */,
 				8F77117B1C872FAD00B6B218 /* Plus.swift in Sources */,
 				8F7E0C941C86FCF800C2104D /* UIBezierPath+Elements.swift in Sources */,
+				8FC0225C1DA52262009BC08C /* PathLabel+Animate.swift in Sources */,
 				8F7E0C921C86F90400C2104D /* CGPath.swift in Sources */,
 				8F7E0CA71C87095900C2104D /* UIBezierPath+Image.swift in Sources */,
 				8F7E0C961C86FE3400C2104D /* UIBezierPath+Text.swift in Sources */,
@@ -486,7 +522,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F8C21BD1DCC890500E7DBD9 /* DotsViewController.swift in Sources */,
 				8FA50D131CABC7CE005D28B6 /* ViewController.swift in Sources */,
+				8FC022551DA51D5C009BC08C /* DragViewController.swift in Sources */,
 				8FA50D111CABC7CE005D28B6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

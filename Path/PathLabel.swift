@@ -14,12 +14,18 @@ open class PathLabel: UILabel
     
     open var path: UIBezierPath?
         {
-        didSet
+        didSet { updateTextPath() }
+    }
+    
+    override open var text: String?
         {
-            updateTextPath()
-            
-            setNeedsDisplay()
-        }
+        didSet { updateTextPath() }
+    }
+    
+    
+    override open var bounds: CGRect
+    {
+        didSet { if oldValue != bounds { updateTextPath() } }
     }
     
     // MARK: - Init
@@ -44,16 +50,20 @@ open class PathLabel: UILabel
     
     func setup()
     {
-        //TODO
+        layer.addSublayer(textPathLayer)
+        
+        updateTextPath()
     }
-
+    
     // MARK: - Size
     
     override open func sizeThatFits(_ size: CGSize) -> CGSize
     {
-        return textPath.bounds.size
+        return textPath.strokeBounds.size
     }
-
+    
+    
+    
     // MARK: - Interface Builder
     
     open override func prepareForInterfaceBuilder()
@@ -65,68 +75,78 @@ open class PathLabel: UILabel
     
     open override var intrinsicContentSize : CGSize
     {
-        return displayPath.approximateBoundsForFont(font).size
+        return textPath.strokeBounds.size
+//        return displayPath.approximateBoundsForFont(font).size
     }
     
     // MARK: - Display Path
     
-    fileprivate var displayPath : UIBezierPath
+    internal var displayPath : UIBezierPath
+    {
+        if let path = self.path
         {
-            if let path = self.path
-            {
-                return path
-            }
-            
-            let path = UIBezierPath()
-            
-            path.move(to: bounds.centerLeft)
-            path.addLine(to: bounds.centerRight)
-            
             return path
+        }
+        
+        let path = UIBezierPath()
+        
+        path.move(to: bounds.centerLeft)
+        path.addLine(to: bounds.centerRight)
+        
+        return path
     }
     
     fileprivate var textPath = UIBezierPath()
+
+    open override func layoutSubviews()
+    {
+        super.layoutSubviews()
+    
+//        textPathLayer.frame = bounds
+        
+        textPath.align(in: bounds)
+        textPathLayer.path = textPath.cgPath
+    }
     
     func updateTextPath()
     {
-        textPath = displayPath.warp(text, font: font, textAlignment: textAlignment)
+        textPath = displayPath.warp(text: text, font: font, textAlignment: textAlignment)
         
-        bounds.size = displayPath.approximateBoundsForFont(font).size
-        superview?.setNeedsLayout()
+        invalidateIntrinsicContentSize()
+        
+        textPathLayer.fillColor = textColor.cgColor
         
         setNeedsDisplay()
     }
     
-//    // MARK: - Image
-//    
-//    private let imageView = UIImageView()
-//    
+    let textPathLayer = CAShapeLayer()
+    
+    //    // MARK: - Image
+    //
+    //    private let imageView = UIImageView()
+    //
     override open func draw(_ rect: CGRect)
     {
-        //TODO: Alpha checks on colors
-
-        if let bgColor = backgroundColor
-        {
-            let bg = UIBezierPath(rect: bounds)
-            bgColor.setFill()
-            bg.fill()
-        }
-    
-        textColor.setFill()
-
-        textPath.align(in: bounds)
-        
-        textPath.fill()
-      
-        
-        if let renderPath = path
-        {
-            UIColor.gray.setStroke()
-            renderPath.align(in: bounds)
-            renderPath.stroke()
-        }
-        
-        
-//        textPath.translated(bounds.center).fill()
+//        //TODO: Alpha checks on colors
+//        
+//        if let bgColor = backgroundColor
+//        {
+//            let bg = UIBezierPath(rect: bounds)
+//            bgColor.setFill()
+//            bg.fill()
+//        }
+//        
+//        textColor.setFill()
+//        
+////        textPath.align(in: bounds)
+//        
+//        textPath.fill()
+//        
+//        if let renderPath = path
+//        {
+//            UIColor.gray.setStroke()
+////            renderPath.align(in: bounds)
+//            renderPath.stroke()
+//        }
     }
 }

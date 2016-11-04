@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a60-QW-4xG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uSe-7Z-nTl">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Warped-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PathDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,16 +20,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label with a longer text than normal" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rei-gM-A83" customClass="PathLabel" customModule="Path">
-                                <frame key="frameInset" minX="95" minY="267" width="411" height="65"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label with a longer text than normal" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rei-gM-A83" customClass="PathLabel" customModule="Path">
                                 <color key="backgroundColor" red="1" green="0.86817904459999995" blue="0.071721377310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aHK-B8-1HN">
-                                <frame key="frameInset" width="600" height="600"/>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aHK-B8-1HN"/>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -39,13 +38,8 @@
                             <constraint firstItem="aHK-B8-1HN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="pz3-ke-h3r"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="DUI-8S-80j">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="A1L-1E-pB4">
-                            <connections>
-                                <segue destination="3b3-hv-a8J" kind="show" id="KW5-Ut-Lt3"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <tabBarItem key="tabBarItem" title="Warped" id="RFR-KH-Phi"/>
+                    <navigationItem key="navigationItem" id="DUI-8S-80j"/>
                     <connections>
                         <outlet property="imageView" destination="aHK-B8-1HN" id="eiO-DV-PAt"/>
                         <outlet property="pathLabel" destination="rei-gM-A83" id="rUI-6E-6fM"/>
@@ -53,12 +47,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1082" y="1110"/>
+            <point key="canvasLocation" x="1980" y="352"/>
         </scene>
-        <!--View Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="SoE-Ws-3Hz">
+            <objects>
+                <tabBarController id="uSe-7Z-nTl" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="FxA-qZ-Gx8"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="3kd-XB-IOl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="D4l-Wv-ZYj"/>
+                        <segue destination="3b3-hv-a8J" kind="relationship" relationship="viewControllers" id="8SX-oU-epO"/>
+                        <segue destination="yWS-et-qIe" kind="relationship" relationship="viewControllers" id="i5S-8K-myi"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GdK-ol-zSe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="617" y="709"/>
+        </scene>
+        <!--Animate-->
         <scene sceneID="S8X-Kq-sVk">
             <objects>
-                <viewController id="3b3-hv-a8J" sceneMemberID="viewController">
+                <viewController id="3b3-hv-a8J" customClass="DragViewController" customModule="PathDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i73-fX-JXk"/>
                         <viewControllerLayoutGuide type="bottom" id="fYX-3F-qe9"/>
@@ -66,30 +80,88 @@
                     <view key="view" contentMode="scaleToFill" id="p8e-Nj-fBq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5Z-vM-0LT" customClass="PathLabel" customModule="Path">
+                                <color key="backgroundColor" red="1" green="0.86817904459999995" blue="0.071721377310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="f5Z-vM-0LT" secondAttribute="height" multiplier="1:1" id="SJW-R0-qpU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="196"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="f5Z-vM-0LT" firstAttribute="centerY" secondItem="p8e-Nj-fBq" secondAttribute="centerY" id="A7w-Hh-6Fd"/>
+                            <constraint firstItem="f5Z-vM-0LT" firstAttribute="leading" secondItem="p8e-Nj-fBq" secondAttribute="leading" id="AIF-a5-wV9"/>
+                            <constraint firstAttribute="trailing" secondItem="f5Z-vM-0LT" secondAttribute="trailing" id="gDQ-oM-sCF"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="fDm-jg-rgw" appends="YES" id="4dh-WL-yOj"/>
+                        </connections>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Animate" id="K7S-P6-a34"/>
+                    <connections>
+                        <outlet property="pathLabel" destination="f5Z-vM-0LT" id="HxS-cB-GTV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pyj-aj-yXB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1746" y="1110"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="atm-LJ-2OZ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a60-QW-4xG" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="btE-Mz-rdc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                <tapGestureRecognizer id="fDm-jg-rgw">
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hhY-3u-bTh"/>
+                        <action selector="handle:" destination="3b3-hv-a8J" id="eqH-Cb-AlA"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CAQ-22-9da" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="371" y="1110"/>
+            <point key="canvasLocation" x="1980" y="1128"/>
+        </scene>
+        <!--Dots-->
+        <scene sceneID="oBL-bs-haw">
+            <objects>
+                <viewController id="yWS-et-qIe" customClass="DotsViewController" customModule="PathDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="93y-3H-6nB"/>
+                        <viewControllerLayoutGuide type="bottom" id="jwr-WN-Ce3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9m1-TZ-nJP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Cz-aR-ShA">
+                                <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZrJ-hY-1oT">
+                                <segments>
+                                    <segment title="Arc"/>
+                                    <segment title="Heart"/>
+                                    <segment title="Polygon"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlChanged:" destination="yWS-et-qIe" eventType="valueChanged" id="i1O-4Y-viU"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6Cz-aR-ShA" firstAttribute="top" secondItem="93y-3H-6nB" secondAttribute="bottom" constant="8" symbolic="YES" id="050-EZ-hiC"/>
+                            <constraint firstItem="6Cz-aR-ShA" firstAttribute="leading" secondItem="9m1-TZ-nJP" secondAttribute="leadingMargin" id="DB9-KC-Quw"/>
+                            <constraint firstItem="ZrJ-hY-1oT" firstAttribute="top" secondItem="93y-3H-6nB" secondAttribute="bottom" constant="8" symbolic="YES" id="Hcd-12-zbd"/>
+                            <constraint firstItem="ZrJ-hY-1oT" firstAttribute="centerX" secondItem="9m1-TZ-nJP" secondAttribute="centerX" id="KBC-ue-Tgo"/>
+                            <constraint firstItem="jwr-WN-Ce3" firstAttribute="top" secondItem="6Cz-aR-ShA" secondAttribute="bottom" constant="8" symbolic="YES" id="biL-qP-SXp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6Cz-aR-ShA" secondAttribute="trailing" id="k7S-ka-8nN"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Dots" id="Iaq-dZ-qwH"/>
+                    <connections>
+                        <outlet property="imageView" destination="6Cz-aR-ShA" id="Zu5-Gg-HAH"/>
+                        <outlet property="segmentedControl" destination="ZrJ-hY-1oT" id="77v-gK-FBd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jqZ-NC-gy7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2855" y="818"/>
         </scene>
     </scenes>
 </document>
