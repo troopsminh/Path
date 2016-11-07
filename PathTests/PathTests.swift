@@ -119,48 +119,48 @@ class PathTests: XCTestCase
         let radius : CGFloat = 20
         let circle = UIBezierPath(arcCenter: CGPoint.zero, radius: radius, startAngle: 0, endAngle: CGFloat(M_PI * 2), clockwise: true)
         
-        circle.alignIn(rect)
+        circle.align(in: rect)
         
         XCTAssertEqual(circle.bounds.width, 40)
         XCTAssertEqual(circle.bounds.height, 40)
         XCTAssertEqual(circle.bounds.center, rect.center)//CGPoint(125, 210))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.bottom)
+        circle.align(in:rect, contentMode: UIViewContentMode.bottom)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.midX, rect.maxY - radius))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.bottomRight)
+        circle.align(in:rect, contentMode: UIViewContentMode.bottomRight)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.maxX - radius, rect.maxY - radius))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.bottomLeft)
+        circle.align(in:rect, contentMode: UIViewContentMode.bottomLeft)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.minX + radius, rect.maxY - radius))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.top)
+        circle.align(in:rect, contentMode: UIViewContentMode.top)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.midX, rect.minY + radius))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.topRight)
+        circle.align(in:rect, contentMode: UIViewContentMode.topRight)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.maxX - radius, rect.minY + radius))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.topLeft)
+        circle.align(in:rect, contentMode: UIViewContentMode.topLeft)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.minX + radius, rect.minY + radius))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.right)
+        circle.align(in:rect, contentMode: UIViewContentMode.right)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.maxX - radius, rect.midY))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.left)
+        circle.align(in:rect, contentMode: UIViewContentMode.left)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.minX + radius, rect.midY))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.center)
+        circle.align(in:rect, contentMode: UIViewContentMode.center)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.midX, rect.midY))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.scaleAspectFit)
+        circle.align(in:rect, contentMode: UIViewContentMode.scaleAspectFit)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.midX, rect.midY))
         XCTAssertEqual(circle.bounds.size, CGSize(50, 50))
 
-        circle.alignIn(rect, contentMode: UIViewContentMode.scaleAspectFill)
+        circle.align(in:rect, contentMode: UIViewContentMode.scaleAspectFill)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.midX, rect.midY))
         XCTAssertEqual(circle.bounds.size, CGSize(400, 400))
         
-        circle.alignIn(rect, contentMode: UIViewContentMode.scaleToFill)
+        circle.align(in:rect, contentMode: UIViewContentMode.scaleToFill)
         XCTAssertEqual(circle.bounds.center, CGPoint(rect.midX, rect.midY))
         XCTAssertEqual(circle.bounds.size, CGSize(50, 400))
     }
