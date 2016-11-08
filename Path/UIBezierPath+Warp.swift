@@ -103,7 +103,7 @@ extension UIBezierPath
             
             let distanceOnPath = point.x / width
             
-            let (index, distanceAtCurveStart) = distances.lastWhere{ $0 < distanceOnPath } ?? (0, 0)
+            let (index, distanceAtCurveStart) = distances.last { $0 < distanceOnPath } ?? (0, 0)
             
             if let curve = curves.get(index), let distanceAtCurveEnd = distances.get(index + 1)
             {

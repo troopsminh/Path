@@ -129,7 +129,7 @@ open class CubicBezierCurve
         let targetArcLength = distance * length //positionsTangentsAndArcLengths[lastIndex].arcLength//arcLengths[lastIndex]
         
         // largest value smaller than targetArcLength, if none exist return time 0
-        guard let (foundIndex, found) = positionsTangentsAndArcLengths.lastWhere({ $0.arcLength < targetArcLength }) else { return 0 }// arcLengths.lastWhere({ $0 <= targetArcLength }) else { return 0 }
+        guard let (foundIndex, found) = positionsTangentsAndArcLengths.last(where: { $0.arcLength < targetArcLength }) else { return 0 }// arcLengths.lastWhere({ $0 <= targetArcLength }) else { return 0 }
         
         if found.arcLength == targetArcLength
         {
