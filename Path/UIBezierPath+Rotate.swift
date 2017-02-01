@@ -6,27 +6,28 @@
 //  Copyright © 2016 Christian Otkjær. All rights reserved.
 //
 
-import Foundation
+import Graphics
 
 public extension UIBezierPath
 {
     // MARK: - Rotate
     
-    /// Rotates this path `theta` radians
-    func rotate(_ theta: CGFloat)
+    /// Rotates this path `theta` radians around `origo`
+    func rotate(_ theta: CGFloat, around origo: CGPoint = .zero)
     {
-        if theta != 0
-        {
-            apply(CGAffineTransform(rotationAngle: theta))
-        }
+        guard theta != 0 else { return }
+        
+        if origo != .zero { translate(-origo) }
+        apply(CGAffineTransform(rotationAngle: theta))
+        if origo != .zero { translate(origo) }
     }
     
-    /// Returns a new `UIBezierPath` that is a copy of this path rotated `theta` radians
-    func rotated(_ theta: CGFloat) -> UIBezierPath
+    /// Returns a new `UIBezierPath` that is a copy of this path rotated `theta` radians around `origo`
+    func rotated(_ theta: CGFloat, around origo: CGPoint = .zero) -> UIBezierPath
     {
         let path = UIBezierPath(path:self)
         
-        path.rotate(theta)
+        path.rotate(theta, around: origo)
         
         return path
     }

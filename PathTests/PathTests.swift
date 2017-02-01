@@ -200,4 +200,15 @@ class PathTests: XCTestCase
         XCTAssertFalse(p3 === p4)
     }
 
+    func test_triangle()
+    {
+        let t1 = UIBezierPath(triangleWithBaseAt: .zero, height: 100, topAngle: .pi/3)
+        
+        let t2 = UIBezierPath(triangleWithBaseAt: .zero, height: 100, topAngle: .pi/3, rotation: .pi/3)
+        
+        XCTAssertNotEqual(t2, t1)
+        
+        XCTAssertTrue(t1.bounds.center != .zero)
+    }
+    
 }

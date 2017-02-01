@@ -40,9 +40,24 @@ class DotsViewController: UIViewController {
         path?.lineWidth = 8
     }
     
-    let paths = [UIBezierPath(arcCenter: CGPoint.zero, radius: 300, startAngle: -.pi/4, endAngle: 5 * .pi / 4, clockwise: true), UIBezierPath(heartCenteredAt: CGPoint.zero, radius: 300), UIBezierPath(convexRegularPolygonWithNumberOfSides: 7,
-                                                                                                                                                                                                        center: CGPoint.zero,
-                                                                                                                                                                                                        circumscribedCircleRadius: 300)]
+    lazy var paths: [UIBezierPath] = { return self.createPaths() }()
+    
+    func createPaths() -> [UIBezierPath]
+    {
+        let bounds = (imageView?.bounds ?? view.bounds).insetBy(dx: 10, dy: 10)
+        
+        let radius = floor(min(bounds.width, bounds.height) / 2)
+        
+        let paths = [
+            UIBezierPath(arcCenter: CGPoint.zero, radius: radius, startAngle: -.pi/4, endAngle: 5 * .pi / 4, clockwise: true),
+            UIBezierPath(heartCenteredAt: CGPoint.zero, radius: radius),
+            UIBezierPath(convexRegularPolygonWithNumberOfSides: 7, center: CGPoint.zero, circumscribedCircleRadius: radius),
+            UIBezierPath(convexRegularPolygonWithNumberOfSides: 3, center: CGPoint.zero, circumscribedCircleRadius: radius)
+            ]
+        
+        return paths
+    }
+    
     
     var path : UIBezierPath?
     {

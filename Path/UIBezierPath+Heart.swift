@@ -10,6 +10,7 @@ import Arithmetic
 import Graphics
 
 private func heartX(_ t: CGFloat) -> CGFloat { return 16 * pow(sin(t), 3) }
+
 private func heartY(_ t: CGFloat) -> CGFloat
 {
     let a = 13 * cos(t)

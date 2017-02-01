@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F36908D1DDC4C7B0027946A /* UIBezierPath+Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36908C1DDC4C7B0027946A /* UIBezierPath+Triangle.swift */; };
+		8F36908F1DDC50EE0027946A /* UIBezierPath+Polygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36908E1DDC50EE0027946A /* UIBezierPath+Polygon.swift */; };
 		8F4B32C01C8DA11E00275253 /* UIBezierPath+Dash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B32BF1C8DA11E00275253 /* UIBezierPath+Dash.swift */; };
 		8F4B32C21C8DA7BB00275253 /* UIBezierPath+Equality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B32C11C8DA7BB00275253 /* UIBezierPath+Equality.swift */; };
 		8F4B32C31C8DAA0900275253 /* Arithmetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E0C9E1C8701CD00C2104D /* Arithmetic.framework */; };
@@ -15,6 +17,7 @@
 		8F4B32C71C8DAEC700275253 /* UIBezierPath+Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B32C61C8DAEC700275253 /* UIBezierPath+Fit.swift */; };
 		8F4B32C91C8DB8AC00275253 /* UIBezierPath+Flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B32C81C8DB8AC00275253 /* UIBezierPath+Flip.swift */; };
 		8F4B32CB1C8ECDCB00275253 /* UIBezierPath+Bounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B32CA1C8ECDCB00275253 /* UIBezierPath+Bounds.swift */; };
+		8F4D486D1E28EF6300019D96 /* UIBezierPath+Hit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4D486C1E28EF6300019D96 /* UIBezierPath+Hit.swift */; };
 		8F55D7941D49152600E58FBB /* UIBezierPath+Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F55D7931D49152600E58FBB /* UIBezierPath+Copy.swift */; };
 		8F55D7981D49484200E58FBB /* UIBezierPath+Heart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F55D7971D49484200E58FBB /* UIBezierPath+Heart.swift */; };
 		8F77117B1C872FAD00B6B218 /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F77117A1C872FAD00B6B218 /* Plus.swift */; };
@@ -38,7 +41,6 @@
 		8F7E0CA71C87095900C2104D /* UIBezierPath+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0CA61C87095900C2104D /* UIBezierPath+Image.swift */; };
 		8F7E0CA91C870A1800C2104D /* Spiral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0CA81C870A1800C2104D /* Spiral.swift */; };
 		8F7E0CAB1C870B5200C2104D /* Cresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0CAA1C870B5200C2104D /* Cresent.swift */; };
-		8F7E0CAD1C870CFE00C2104D /* Polygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E0CAC1C870CFE00C2104D /* Polygon.swift */; };
 		8F8C21B81DCC834300E7DBD9 /* UIBezierPath+Dots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8C21B71DCC834300E7DBD9 /* UIBezierPath+Dots.swift */; };
 		8F8C21BD1DCC890500E7DBD9 /* DotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8C21BC1DCC890500E7DBD9 /* DotsViewController.swift */; };
 		8F97AD471CEEE67C002DF85C /* UIBezierPath+Align.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F97AD461CEEE67C002DF85C /* UIBezierPath+Align.swift */; };
@@ -111,11 +113,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8F36908C1DDC4C7B0027946A /* UIBezierPath+Triangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Triangle.swift"; sourceTree = "<group>"; };
+		8F36908E1DDC50EE0027946A /* UIBezierPath+Polygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Polygon.swift"; sourceTree = "<group>"; };
 		8F4B32BF1C8DA11E00275253 /* UIBezierPath+Dash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Dash.swift"; sourceTree = "<group>"; };
 		8F4B32C11C8DA7BB00275253 /* UIBezierPath+Equality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Equality.swift"; sourceTree = "<group>"; };
 		8F4B32C61C8DAEC700275253 /* UIBezierPath+Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Fit.swift"; sourceTree = "<group>"; };
 		8F4B32C81C8DB8AC00275253 /* UIBezierPath+Flip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Flip.swift"; sourceTree = "<group>"; };
 		8F4B32CA1C8ECDCB00275253 /* UIBezierPath+Bounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Bounds.swift"; sourceTree = "<group>"; };
+		8F4D486C1E28EF6300019D96 /* UIBezierPath+Hit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Hit.swift"; sourceTree = "<group>"; };
 		8F55D7931D49152600E58FBB /* UIBezierPath+Copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Copy.swift"; sourceTree = "<group>"; };
 		8F55D7971D49484200E58FBB /* UIBezierPath+Heart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Heart.swift"; sourceTree = "<group>"; };
 		8F77117A1C872FAD00B6B218 /* Plus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
@@ -142,7 +147,6 @@
 		8F7E0CA61C87095900C2104D /* UIBezierPath+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Image.swift"; sourceTree = "<group>"; };
 		8F7E0CA81C870A1800C2104D /* Spiral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spiral.swift; sourceTree = "<group>"; };
 		8F7E0CAA1C870B5200C2104D /* Cresent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cresent.swift; sourceTree = "<group>"; };
-		8F7E0CAC1C870CFE00C2104D /* Polygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polygon.swift; sourceTree = "<group>"; };
 		8F8C21B71DCC834300E7DBD9 /* UIBezierPath+Dots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Dots.swift"; sourceTree = "<group>"; };
 		8F8C21BC1DCC890500E7DBD9 /* DotsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotsViewController.swift; sourceTree = "<group>"; };
 		8F97AD461CEEE67C002DF85C /* UIBezierPath+Align.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Align.swift"; sourceTree = "<group>"; };
@@ -246,16 +250,18 @@
 				8F4B32C11C8DA7BB00275253 /* UIBezierPath+Equality.swift */,
 				8F4B32C61C8DAEC700275253 /* UIBezierPath+Fit.swift */,
 				8F4B32CA1C8ECDCB00275253 /* UIBezierPath+Bounds.swift */,
+				8F4D486C1E28EF6300019D96 /* UIBezierPath+Hit.swift */,
 				8F97AD461CEEE67C002DF85C /* UIBezierPath+Align.swift */,
 				8F55D7931D49152600E58FBB /* UIBezierPath+Copy.swift */,
 				8F55D7971D49484200E58FBB /* UIBezierPath+Heart.swift */,
 				8F8C21B71DCC834300E7DBD9 /* UIBezierPath+Dots.swift */,
+				8F36908C1DDC4C7B0027946A /* UIBezierPath+Triangle.swift */,
+				8F36908E1DDC50EE0027946A /* UIBezierPath+Polygon.swift */,
 				8F97AD481CEEEE79002DF85C /* Alignment.swift */,
 				8F7711FB1C897EA900B6B218 /* LineJoin.swift */,
 				8F7711FD1C897F8300B6B218 /* LineCap.swift */,
 				8F7E0CA81C870A1800C2104D /* Spiral.swift */,
 				8F7E0CAA1C870B5200C2104D /* Cresent.swift */,
-				8F7E0CAC1C870CFE00C2104D /* Polygon.swift */,
 				8FCAE9301C87171900D69136 /* SuperEllipse.swift */,
 				8FCAE9321C87183100D69136 /* Star.swift */,
 				8FCAE9341C87184B00D69136 /* Drop.swift */,
@@ -477,8 +483,10 @@
 				8F4B32C71C8DAEC700275253 /* UIBezierPath+Fit.swift in Sources */,
 				8FCAE9311C87171900D69136 /* SuperEllipse.swift in Sources */,
 				8F7711FE1C897F8300B6B218 /* LineCap.swift in Sources */,
+				8F36908F1DDC50EE0027946A /* UIBezierPath+Polygon.swift in Sources */,
 				8F4B32C91C8DB8AC00275253 /* UIBezierPath+Flip.swift in Sources */,
 				8F55D7981D49484200E58FBB /* UIBezierPath+Heart.swift in Sources */,
+				8F36908D1DDC4C7B0027946A /* UIBezierPath+Triangle.swift in Sources */,
 				8F7E0C8E1C85E27C00C2104D /* PathElement.swift in Sources */,
 				8F7E0CAB1C870B5200C2104D /* Cresent.swift in Sources */,
 				8F55D7941D49152600E58FBB /* UIBezierPath+Copy.swift in Sources */,
@@ -487,6 +495,7 @@
 				8F97AD471CEEE67C002DF85C /* UIBezierPath+Align.swift in Sources */,
 				8FEA6B471DA4F7A2002460BB /* UIBezierPath+Translate.swift in Sources */,
 				8F97AD491CEEEE79002DF85C /* Alignment.swift in Sources */,
+				8F4D486D1E28EF6300019D96 /* UIBezierPath+Hit.swift in Sources */,
 				8FEA6B491DA4F895002460BB /* UIBezierPath+Rotate.swift in Sources */,
 				8F7E0C901C85FBC600C2104D /* GraphicsPath.swift in Sources */,
 				8F4B32C21C8DA7BB00275253 /* UIBezierPath+Equality.swift in Sources */,
@@ -497,7 +506,6 @@
 				8F7E0C9A1C86FE9D00C2104D /* CubicBezierCurve.swift in Sources */,
 				8FCAE9371C8718D000D69136 /* Vector.swift in Sources */,
 				8F4B32CB1C8ECDCB00275253 /* UIBezierPath+Bounds.swift in Sources */,
-				8F7E0CAD1C870CFE00C2104D /* Polygon.swift in Sources */,
 				8F77117B1C872FAD00B6B218 /* Plus.swift in Sources */,
 				8F7E0C941C86FCF800C2104D /* UIBezierPath+Elements.swift in Sources */,
 				8FC0225C1DA52262009BC08C /* PathLabel+Animate.swift in Sources */,
