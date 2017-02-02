@@ -24,17 +24,17 @@ extension UIBezierPath
         
         var radius = (outerRadius, innerRadius)
         
-        move(to: CGPoint(x: radius.0, y: 0))
+        addArc(withCenter: center, radius: innerRadius/2, startAngle: 0, endAngle: π2, clockwise: true)
+        
+        move(to: center + CGPoint(x: radius.0, y: 0))
         
         for _ in 0..<teeth*2
         {
+            addArc(withCenter: center, radius: radius.0, startAngle: 0, endAngle: -angle, clockwise: false)
+            
             apply(CGAffineTransform(rotationAngle: angle))
             
             swap(&radius.0, &radius.1)
-            
-            addArc(withCenter: center, radius: radius.0, startAngle: 0, endAngle: angle, clockwise: true)
-            
-//            addLine(to: CGPoint(x: radius.0, y: 0))
         }
         
         apply(CGAffineTransform(translationX: center.x, y: center.y))

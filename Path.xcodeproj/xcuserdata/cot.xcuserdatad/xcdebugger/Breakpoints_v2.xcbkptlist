@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PathTests/PathTests.swift"
-            timestampString = "500982593.447724"
+            timestampString = "507713429.623762"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "test_triangle()"
             landmarkType = "7">
          </BreakpointContent>
@@ -89,29 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Path/UIBezierPath+Rotate.swift"
-            timestampString = "500983041.742532"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "rotate(_:around:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "PathTests/PathTests.swift"
-            timestampString = "507712779.955582"
+            timestampString = "507715084.815274"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "test_gear()"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
+            landmarkName = "test_reload()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

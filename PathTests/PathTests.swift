@@ -202,11 +202,10 @@ class PathTests: XCTestCase
 
     func test_triangle()
     {
-        let t1 = UIBezierPath(triangleWithBaseAt: .zero, height: 100, topAngle: .pi/3)
+        let t1 = UIBezierPath(triangleWithTopAt: .zero, height: 100, topAngle: .pi/3)
+        let t2 = UIBezierPath(triangleWithTopAt: .zero, height: 100, topAngle: .pi/3)
         
-        let t2 = UIBezierPath(triangleWithBaseAt: .zero, height: 100, topAngle: .pi/3, rotation: .pi/3)
-        
-        XCTAssertNotEqual(t2, t1)
+        XCTAssertEqual(t2, t1)
         
         XCTAssertTrue(t1.bounds.center != .zero)
     }
@@ -214,8 +213,32 @@ class PathTests: XCTestCase
     func test_gear()
     {
         let g1 = UIBezierPath(gearWithCenter: .zero, innerRadius: 100, outerRadius: 150, teeth: 6)
+        let g2 = UIBezierPath(gearWithCenter: .zero, innerRadius: 100, outerRadius: 150, teeth: 7)
+        
+        XCTAssertNotEqual(g1, g2)
         
         XCTAssertNotEqual(g1.bounds, .zero)
     }
-    
+
+    func test_reload()
+    {
+        let r0 = UIBezierPath(reloadSymbolWithCenter: .zero, radius: 100, arrows: 0)
+        let r1 = UIBezierPath(reloadSymbolWithCenter: .zero, radius: 100, arrows: 1)
+        let r2 = UIBezierPath(reloadSymbolWithCenter: .zero, radius: 100, arrows: 2)
+        let r3 = UIBezierPath(reloadSymbolWithCenter: .zero, radius: 100, arrows: 3)
+        let r4 = UIBezierPath(reloadSymbolWithCenter: .zero, radius: 100, arrows: 4)
+
+        XCTAssertEqual(r0, UIBezierPath())
+
+        XCTAssertNotEqual(r2, r0)
+        XCTAssertNotEqual(r2, r1)
+        XCTAssertNotEqual(r2, r3)
+        XCTAssertNotEqual(r2, r4)
+        XCTAssertNotEqual(r1, r3)
+        XCTAssertNotEqual(r1, r4)
+        XCTAssertNotEqual(r3, r4)
+        
+        XCTAssertNotEqual(r2.bounds, .zero)
+    }
+
 }
