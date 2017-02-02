@@ -63,8 +63,6 @@ public extension UIBezierPath
             if turned
             {
                 apply(CGAffineTransform(rotationAngle: π_2 - π / n))
-    
-                //            applyTransform(CGAffineTransformMakeRotation(π / CGFloat(n)))
             }
     
             apply(CGAffineTransform(translationX: center.x, y: center.y))
@@ -75,28 +73,3 @@ public extension UIBezierPath
             self.init(convexRegularPolygonWithNumberOfSides: 5, center: center, circumscribedCircleRadius: sideLength, turned: turned)
         }
 }
-//import Arithmetic
-//import Graphics
-//
-//// MARK: - Polygon
-//
-//extension UIBezierPath
-//{
-//    public convenience init(polygonWithCorners corners: CGPoint...)
-//    {
-//        self.init()
-//        
-//        guard corners.count > 2 else { debugPrint("A polygon must hav at least 3 sides"); return }
-//
-//        var cs = corners
-//        
-//        move(to: cs.removeFirst())
-//        
-//        for c in cs
-//        {
-//            addLine(to: c)
-//        }
-//        
-//        close()
-//    }
-//}

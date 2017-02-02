@@ -211,4 +211,11 @@ class PathTests: XCTestCase
         XCTAssertTrue(t1.bounds.center != .zero)
     }
     
+    func test_gear()
+    {
+        let g1 = UIBezierPath(gearWithCenter: .zero, innerRadius: 100, outerRadius: 150, teeth: 6)
+        
+        XCTAssertNotEqual(g1.bounds, .zero)
+    }
+    
 }

@@ -52,7 +52,8 @@ class DotsViewController: UIViewController {
             UIBezierPath(arcCenter: CGPoint.zero, radius: radius, startAngle: -.pi/4, endAngle: 5 * .pi / 4, clockwise: true),
             UIBezierPath(heartCenteredAt: CGPoint.zero, radius: radius),
             UIBezierPath(convexRegularPolygonWithNumberOfSides: 7, center: CGPoint.zero, circumscribedCircleRadius: radius),
-            UIBezierPath(convexRegularPolygonWithNumberOfSides: 3, center: CGPoint.zero, circumscribedCircleRadius: radius)
+            UIBezierPath(convexRegularPolygonWithNumberOfSides: 3, center: CGPoint.zero, circumscribedCircleRadius: radius),
+            UIBezierPath(gearWithCenter: .zero, innerRadius: radius * 0.80, outerRadius: radius, teeth: 7)
             ]
         
         return paths

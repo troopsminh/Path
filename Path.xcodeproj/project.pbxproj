@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F02A5CB1E431377000EE5F1 /* UIBezierPath+Gear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F02A5CA1E431377000EE5F1 /* UIBezierPath+Gear.swift */; };
 		8F36908D1DDC4C7B0027946A /* UIBezierPath+Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36908C1DDC4C7B0027946A /* UIBezierPath+Triangle.swift */; };
 		8F36908F1DDC50EE0027946A /* UIBezierPath+Polygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36908E1DDC50EE0027946A /* UIBezierPath+Polygon.swift */; };
 		8F4B32C01C8DA11E00275253 /* UIBezierPath+Dash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B32BF1C8DA11E00275253 /* UIBezierPath+Dash.swift */; };
@@ -113,6 +114,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8F02A5CA1E431377000EE5F1 /* UIBezierPath+Gear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Gear.swift"; sourceTree = "<group>"; };
 		8F36908C1DDC4C7B0027946A /* UIBezierPath+Triangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Triangle.swift"; sourceTree = "<group>"; };
 		8F36908E1DDC50EE0027946A /* UIBezierPath+Polygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Polygon.swift"; sourceTree = "<group>"; };
 		8F4B32BF1C8DA11E00275253 /* UIBezierPath+Dash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Dash.swift"; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				8F8C21B71DCC834300E7DBD9 /* UIBezierPath+Dots.swift */,
 				8F36908C1DDC4C7B0027946A /* UIBezierPath+Triangle.swift */,
 				8F36908E1DDC50EE0027946A /* UIBezierPath+Polygon.swift */,
+				8F02A5CA1E431377000EE5F1 /* UIBezierPath+Gear.swift */,
 				8F97AD481CEEEE79002DF85C /* Alignment.swift */,
 				8F7711FB1C897EA900B6B218 /* LineJoin.swift */,
 				8F7711FD1C897F8300B6B218 /* LineCap.swift */,
@@ -512,6 +515,7 @@
 				8F7E0C921C86F90400C2104D /* CGPath.swift in Sources */,
 				8F7E0CA71C87095900C2104D /* UIBezierPath+Image.swift in Sources */,
 				8F7E0C961C86FE3400C2104D /* UIBezierPath+Text.swift in Sources */,
+				8F02A5CB1E431377000EE5F1 /* UIBezierPath+Gear.swift in Sources */,
 				8F7711FC1C897EA900B6B218 /* LineJoin.swift in Sources */,
 				8FCAE9351C87184B00D69136 /* Drop.swift in Sources */,
 				8F7E0C981C86FE8600C2104D /* UIBezierPath+Curves.swift in Sources */,
