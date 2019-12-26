@@ -75,6 +75,6 @@ public func == (lhs: PathElement, rhs: PathElement) -> Bool
     case (.closeSubpath, .closeSubpath):
         return true
     case (_, _):
-        return false
+        return true
     }
 }
